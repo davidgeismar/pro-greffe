@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recommandations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Greffe agency</th>
+      <th>Email</th>
+      <th>Author</th>
+      <th>Rating</th>
+      <th>Comment</th>
+      <th>Visible</th>
+      <th>Admin check</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recommandations.each do |recommandation| %>
+      <tr>
+        <td><%= recommandation.greffe %></td>
+        <td><%= recommandation.email %></td>
+        <td><%= recommandation.author %></td>
+        <td><%= recommandation.rating %></td>
+        <td><%= recommandation.comment %></td>
+        <td><%= recommandation.visible %></td>
+        <td><%= recommandation.admin_check %></td>
+        <td><%= link_to 'Show', recommandation %></td>
+        <td><%= link_to 'Edit', edit_recommandation_path(recommandation) %></td>
+        <td><%= link_to 'Destroy', recommandation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recommandation', new_recommandation_path %>

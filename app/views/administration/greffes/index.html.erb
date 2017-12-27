@@ -1,0 +1,22 @@
+<%= provide(:title, "Liste des Greffes" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Créer un noveau Greffe', new_administration_greffe_path, class: "btn btn-success" %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>Banque sans frais <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_greffes_path do %>Greffes<% end %></li>
+<% end %>
+
+
+<%= container_card("Recherche ") do %>
+<%= render partial: "administration/greffes/presentation/search_filter"%>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= container_card("Liste des articles") do %>
+    <%= render partial: "administration/greffes/presentation/table", locals:{greffes: @greffes} %>
+    <% end %>
+  </div>
+</div>

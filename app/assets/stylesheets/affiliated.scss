@@ -1,0 +1,91 @@
+$gray-darker:               #444444;
+$gray-dark:                 #696969;
+$gray:                      #999999;
+$gray-light:                #cccccc;
+$gray-lighter:              #ececec;
+
+// .link-affiliated {
+  img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+  }
+
+
+
+  .card {
+    background-color: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .card__content {
+    padding: 1rem;
+  }
+
+  .card__image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
+    &::before {
+      content: "";
+  	  display: block;
+      padding-top: 56.25%; // 16:9 aspect ratio
+    }
+    @media(min-width: 40rem) {
+      &::before {
+        padding-top: 66.6%; // 3:2 aspect ratio
+      }
+    }
+  }
+
+  .card__image--monabanq {
+    background-image: image_url("affiliated_greffes_logo/monabanq.png");
+  }
+
+  .card__image--boursorama {
+    background-image: image_url("affiliated_greffes_logo/boursorama.png");
+  }
+
+  .card__image--n26 {
+    background-image: image_url("affiliated_greffes_logo/N26.png");
+  }
+
+  .card__image--fence {
+    background-image: url(https://unsplash.it/800/600?image=59);
+  }
+
+  .card__title {
+    color: $gray-dark;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .card__text {
+    flex: 1 1 auto;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .list-sans-frais {
+    list-style: none;
+    li{
+      margin-bottom: 0.5rem;
+    }
+    li:before {
+      font-family: 'FontAwesome';
+      content: '\f19c';
+      margin:0 5px 0 -15px;
+      }
+  }
+// }

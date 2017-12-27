@@ -1,0 +1,63 @@
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nom de la catégorie" %>
+    <%= form.text_field :name, id: :category_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, id: :category_description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :slug %>
+    <%= form.text_field :slug, id: :category_slug, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <div>
+      <strong>Petite image</strong>
+    </div>
+    <p>
+      <%= image_tag(category.small_image_url, class: "img-fluid img-100") if category.small_image? %>
+      <%= form.file_field :small_image %>
+      <%= form.hidden_field :small_image_cache %>
+      <% form.text_field :remote_small_image_url %>
+    </p>
+
+    <p>
+      <label>
+        <%= form.check_box :remove_small_image %>
+        Supprimer l'image
+      </label>
+    </p>
+
+
+  </div>
+
+  <div class="form-group">
+    <%= form.label :category_type %>
+    <%= form.text_field :category_type, id: :category_category_type, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :visible %>
+    <%= form.check_box :visible, id: :category_visible %>
+  </div>
+
+  <div class="actions text-center">
+    <%= form.submit "Mettre à jour", class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @medium.name %>
+</p>
+
+<p>
+  <strong>Internal name:</strong>
+  <%= @medium.internal_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @medium.description %>
+</p>
+
+<p>
+  <strong>Popularity order:</strong>
+  <%= @medium.popularity_order %>
+</p>
+
+<p>
+  <strong>Medium kind:</strong>
+  <%= @medium.medium_kind %>
+</p>
+
+<p>
+  <strong>Video link:</strong>
+  <%= @medium.video_link %>
+</p>
+
+<p>
+  <strong>Small image:</strong>
+  <%= @medium.small_image %>
+</p>
+
+<%= link_to 'Edit', edit_medium_path(@medium) %> |
+<%= link_to 'Back', media_path %>

@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="language" content="fr-FR" />
+<meta http-equiv="content-language" content="fr-FR" />
+
+
+<title><%= content_for?(:title) ? yield(:title) : "Greffe sans frais - Les Greffes avec le moins de frais" %></title>
+<meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Les frais bancaires de toutes les Greffes. Trouvez votre greffe. Réduire ses frais bancaires facilement. Négociez les frais de votre Greffe. Comparer les frais. Changer de Greffe pour une Greffe sans frais" %>">
+<%= favicon_link_tag 'greffe-icon.png' %>
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : "Frais des Greffes - Greffe Sans Frais" %>">
+<meta itemprop="description" content="<%= content_for?(:description) ? yield(:description) : "Les frais bancaires de toutes les Greffes. Réduire ses frais bancaires facilement. Négociez les frais de votre Greffe. Comparer les frais. Changer de Greffe pour une Greffe sans frais"%>">
+
+<meta name="keywords" lang="fr" content="<%= content_for?(:keywords) ? yield(:keywords) : "frais bancaires, economiser ses frais bancaires, négociez frais bancaires" %>">
+<meta itemprop="image" content="<%= content_for?(:image) ? yield(:image) : "https://www.Greffe-sans-frais.com/social-logo.png" %>">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@GreffeSansFrais">
+<meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "Frais des Greffes - Greffe Sans Frais" %>">
+<meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : "Les frais bancaires de toutes les Greffes. Réduire ses frais bancaires facilement. Trouvez votre greffe. Comparer les frais. Changer de Greffe pour une Greffe sans frais" %>">
+<meta name="twitter:image" content="<%= content_for?(:image) ? yield(:image) : "https://www.Greffe-sans-frais.com/social-logo.png" %>">
+<meta name="twitter:url" content="<%= "https://#{request.host+request.fullpath}" %>">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "Frais des Greffes - Greffe Sans Frais" %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= "https://#{request.host+request.fullpath}" %>"/>
+<meta property="og:image" content="<%= content_for?(:image) ? yield(:image) : "https://www.Greffe-sans-frais.com/social-logo.png" %>" />
+<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : "Les frais bancaires de toutes les Greffes. Réduire ses frais bancaires facilement. Trouvez votre greffe. Comparer les frais. Changer de Greffe pour une Greffe sans frais" %>" />
+<meta property="og:site_name" content="Greffe Sans Frais" />
+<meta property="og:locale" content="FR" />
+
+<link rel="canonical" href="<%= "https://#{request.host+request.fullpath}" %>" itemprop="url" hreflang="fr"/>
+<!-- Google plus author -->
+<link rel="publisher" href="https://plus.google.com/u/0/b/113077421712081511732/113077421712081511732" />

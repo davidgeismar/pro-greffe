@@ -1,0 +1,9 @@
+<%= provide(:title, "Rendez-vous 100% Gratuit") %>
+<div class="container">
+  <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <h1 class="text-center headline">Demande de rendez-vous</h1>
+      <%= render partial: "recalls/form", locals:{recall: @recall, page_origin: @page_origin} %>
+    </div>
+  </div>
+</div>

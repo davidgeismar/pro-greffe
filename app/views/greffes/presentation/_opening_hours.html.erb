@@ -1,0 +1,61 @@
+<table class="table table-striped table-bordered">
+  <tbody>
+    <% today = Time.zone.now.wday %>
+        <% if today == 1 %>
+          <tr class="background-primary color-white">
+        <% else %>
+          <tr>
+        <% end %>
+        <td>Lundi</td>
+        <td><%= greffe.monday_hours%></td>
+      </tr>
+      <% if today == 2 %>
+        <tr class="background-primary color-white">
+      <% else %>
+        <tr>
+      <% end %>
+        <td>Mardi</td>
+        <td><%= greffe.tuesday_hours%></td>
+      </tr>
+      <% if today == 3 %>
+        <tr class="background-primary color-white">
+      <% else %>
+        <tr>
+      <% end %>
+        <td>Mercredi</td>
+        <td><%= greffe.wednesday_hours%></td>
+      </tr>
+      <% if today == 4 %>
+        <tr class="background-primary color-white">
+      <% else %>
+        <tr>
+      <% end %>
+        <td>Jeudi</td>
+        <td><%= greffe.thursday_hours%></td>
+      </tr>
+      <% if today == 5 %>
+        <tr class="background-primary color-white">
+      <% else %>
+        <tr>
+      <% end %>
+        <td>Vendredi</td>
+        <td><%= greffe.friday_hours%></td>
+      </tr>
+      <% if today == 6 %>
+        <tr class="background-primary color-white">
+      <% else %>
+        <tr>
+      <% end %>
+        <td>Samedi</td>
+        <td><%= greffe.saturday_hours%></td>
+      </tr>
+      <% if today == 0 %>
+        <tr class="background-primary color-white">
+      <% else %>
+        <tr>
+      <% end %>
+        <td>Dimanche</td>
+        <td><%= greffe.sunday_hours%></td>
+      </tr>
+  </tbody>
+</table>

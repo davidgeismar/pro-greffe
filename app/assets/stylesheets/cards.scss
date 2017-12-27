@@ -1,0 +1,13 @@
+.card-product{
+  &:hover{
+    color:white;
+    background-color: $primary;
+  }
+  a{
+    text-decoration: none;
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+}

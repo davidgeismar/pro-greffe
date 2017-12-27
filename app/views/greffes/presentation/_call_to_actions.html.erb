@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 w-100 text-center">
+      <span class='extra-strong mb-4'>Vous pourriez économiser jusqu'à 300€ de frais bancaires par an.</span>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-6 w-50 text-center p-2">
+      <p>Avec la <span class='strong'>simulation personnalisée </span>, trouvez la Greffe vous correspondant :</p>
+      <%= link_to redirection_go_path(url: "https://www.bankizy.com/formulaires-comparaison/3-bankizy-le-comparateur-de-Greffes"), class:'btn btn-primary btn-block btn-lg btn-wrap' do %>
+      Simulation perso
+      <% end %>
+    </div>
+    <div class="col-6 w-50 text-center p-2">
+      <p>Découvrez les meilleures Greffes avec <span class='strong'>0€ de frais bancaires</span> :</p>
+      <%= link_to "Découvrir les Greffes sans frais", home_recommended_greffes_path, class: 'btn btn-primary btn-block btn-lg btn-wrap' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<%= provide(:title, @article.meta_title) %>
+<%= provide(:description, @article.meta_description) %>
+<%= provide(:keywords, "changement Greffe, transfert de compte, transfet livret, transfert assurance, loi macron, frais, Greffes") %>
+<%= provide(:image, @article.small_image_url) %>
+<div itemscope itemtype= "http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="<%=root_url%>" />
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <%= image_tag @article.small_image, class:"img-fluid img-400" , itemprop: "image"%>
+      </div>
+      <div class="sticky-top-navbar">
+        <section class="page-section p-3 ">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-center text-uppercase">Résumé</h3>
+                <p>Publié le <time itemprop="datePublished" datetime=<%=@article.created_at.strftime("%F") %>><%= @article.created_at.strftime("%d-%m-%Y") %></time></p>
+                <p>par <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"> <span itemprop="name">Greffe Sans Frais</span></span></p>
+
+              <p>
+                <%= simple_format @article.small_description %>
+              </p>
+
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="page-section p-3 ">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <%= link_to "tel:#{PhoneGenerator.main_phone_intern}", class: "btn btn-secondary" do %>
+              Infos Souscriptions Greffe <br />
+              <%= PhoneGenerator.main_phone %>
+              <% end %>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="page-section p-3 ">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <h3>Appelez un conseiller ? </h3>
+              <%= link_to "tel:#{PhoneGenerator.main_phone_intern}", class: "btn btn-color-primary btn-lg" do %>
+
+              <%= PhoneGenerator.main_phone %>
+              <% end %>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center"><span itemprop="headline"><%= @article.name %></span></h1>
+            <div class="text-left" itemprop="articleBody">
+              <%= @article.content.html_safe %>
+            </div>
+            <div class="text-center">
+              <span itemprop="author" itemscope itemtype="http://schema.org/Person">Auteur : <span itemprop="name"><%=@article.author%></span></span>
+              <br />
+              <i> Dernière mise à jour: <time itemprop="dateModified" datetime=<%=@article.updated_at.strftime("%F") %>><%=l @article.updated_at, format: :short %></time></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+</div>
+
+<% if administrator_signed_in? %>
+<%= link_to 'Modifier', edit_article_path(@article) %> |
+<%= link_to 'Liste', articles_path %>
+<%= link_to 'Supprimer', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

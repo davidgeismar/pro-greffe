@@ -1,0 +1,45 @@
+<%= form_for([:administration, @tag]) do |form| %>
+  <% if @tag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+      <ul>
+      <% @tag.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nom" %>
+    <%= form.text_field :name, id: :tag_name, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :tag_description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :popularity_order, "Ordre de popularité" %>
+    <%= form.number_field :popularity_order, id: :tag_popularity_order, class: "form-control" %>
+  </div>
+
+  <%= render partial: "administration/general_forms/small_image", locals:{small_imageable: @tag, f: form} %>
+
+  <div class="form-group">
+    <%= form.label :slug, "Slug pour URL" %>
+    <%= form.text_field :slug, id: :tag_slug, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :research_name, "Nom recherche (Pour louis)"%>
+    <%= form.text_field :research_name, id: :tag_research_name, class: "form-control" %>
+  </div>
+
+  <div class="actions text-center">
+    <%= form.submit "Mettre à jour", class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

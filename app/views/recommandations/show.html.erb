@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Greffe agency:</strong>
+  <%= @recommandation.greffe %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @recommandation.email %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @recommandation.author %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @recommandation.rating %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @recommandation.comment %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @recommandation.visible %>
+</p>
+
+<p>
+  <strong>Admin check:</strong>
+  <%= @recommandation.admin_check %>
+</p>
+
+<%= link_to 'Edit', edit_recommandation_path(@recommandation) %> |
+<%= link_to 'Back', recommandations_path %>

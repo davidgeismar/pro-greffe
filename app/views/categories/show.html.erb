@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @category.slug %>
+</p>
+
+<p>
+  <strong>Small image:</strong>
+  <%= @category.small_image %>
+</p>
+
+<p>
+  <strong>Category type:</strong>
+  <%= @category.category_type %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @category.visible %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @category.type %>
+</p>
+
+<%= link_to 'Modifier', edit_category_path(@category) %> |
+<%= link_to 'Retour Liste', categories_path %>
+<%= link_to 'Supprimer', @category, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,66 @@
+<%= form_for([:administration,@article ]) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="form-group">
+    <%= f.label :name, "Titre de l'article" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_ids, "Catégorie de l'article" %><br>
+    <%= f.collection_select :category_ids, ArticleCategory.order(:name), :id, :name, {prompt: "Selectionnez la catégorie de l'article"}, {class: "form-control", multiple: true} %>
+  </div>
+
+  <div class="form-group">
+	<%= f.label :tags_list, "Tags associés" %>
+	<br>
+	<%= f.text_field :tags_list, class: "form-control", :id => "taginput" %>
+</div>
+
+  <div class="form-group">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :small_description, "Petite description (sans mise en forme)" %><br>
+    <%= f.text_area :small_description, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, 'Contenu' %><br>
+    <%= f.text_area :content, class: "summernotebis"  %>
+  </div>
+
+  <%= render partial: "administration/general_forms/small_image", locals:{small_imageable: @article, f: f} %>
+
+  <div class="form-group">
+    <%= f.label :hero_image %><br>
+    <%= f.text_field :hero_image, class: "form-control"  %>
+  </div>
+
+  <h3>Administration</h3>
+  <div class="form-group">
+    <%= f.label :visible %><br>
+    <%= f.check_box :visible %>
+  </div>
+  <div class="form-group">
+    <%= f.label :slug %><br>
+    <%= f.text_field :slug, class: "form-control"  %>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit "Mettre à jour", class: "btn btn-success btn-lg btn-submit-bo" %>
+  </div>
+<% end %>

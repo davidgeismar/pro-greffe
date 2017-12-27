@@ -1,0 +1,15 @@
+
+<%= provide(:title, "Nouveau tag" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Retour aux tags', administration_tags_path, class: "btn btn-success" %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_tags_path do %>Tags<% end %></li>
+<li class="breadcrumb-item active">Nouveau tag</li>
+<% end %>
+
+<%= container_card("Données") do %>
+<%= render 'form' %>
+<% end %>

@@ -1,0 +1,29 @@
+<table itemprop='priceRange' class="table table-striped table-bordered" style= "margin-top: 20px">
+  <thead>
+    <tr>
+      <th>Frais tenue de compte</th>
+      <th>Frais carte electron</th>
+			<th>Frais carte bleue</th>
+			<th>Frais carte premier</th>
+			<th>Frais carte Infinite</th>
+			<th>Agios autorisés</th>
+			<th>Agios non autorisés</th>
+			<th>Commission variable dépenses étranger</th>
+			<th>Commission fixe dépenses à étranger</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr class='fee-row'>
+      <td><%=greffe.total_fee_account %>€</td>
+      <td><%= greffe.electron_card_fee %>€</td>
+			<td><%= greffe.classic_card_fee %>€</td>
+			<td><%= greffe.premier_card_fee %>€</td>
+			<td><%= greffe.infinite_card_fee %>€</td>
+			<td><%= to_percent(greffe.authorized_agio) %></td>
+			<td><%= to_percent(greffe.unauthorized_agio) %></td>
+			<td><%= to_percent(greffe.foreign_variable_fee) %></td>
+			<td><%= greffe.foreign_constant_fee %>€</td>
+    </tr>
+  </tbody>
+</table>

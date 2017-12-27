@@ -1,0 +1,52 @@
+<%= form_with(model: recommandation, local: true) do |form| %>
+  <% if recommandation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recommandation.errors.count, "error") %> prohibited this recommandation from being saved:</h2>
+
+      <ul>
+      <% recommandation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :greffe_id %>
+    <%= form.text_field :greffe_id, id: :recommandation_greffe_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :recommandation_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :recommandation_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, id: :recommandation_rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :recommandation_comment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visible %>
+    <%= form.check_box :visible, id: :recommandation_visible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :admin_check %>
+    <%= form.check_box :admin_check, id: :recommandation_admin_check %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

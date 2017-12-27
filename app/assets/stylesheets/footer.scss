@@ -1,0 +1,22 @@
+.footer-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2000;
+}
+
+#footer{
+  a{
+    color: $white;
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+
+    &:hover, &:focus {
+      color: $secondary;
+      @include color-transition($time);
+    }
+  }
+}

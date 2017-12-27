@@ -1,0 +1,18 @@
+<div class="form-group">
+  <div>
+    <strong>Petite image</strong>
+  </div>
+  <p>
+    <%= image_tag(small_imageable.small_image_url, class: "img-fluid img-100") if small_imageable.small_image? %>
+    <%= f.file_field :small_image %>
+    <%= f.hidden_field :small_image_cache %>
+    <% f.text_field :remote_small_image_url %>
+  </p>
+
+  <p>
+    <label>
+      <%= f.check_box :remove_small_image %>
+      Supprimer l'image
+    </label>
+  </p>
+</div>

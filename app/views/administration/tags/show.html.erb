@@ -1,0 +1,46 @@
+<%= provide(:title, "Tag:  #{@tag.name}" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Modifier', edit_administration_tag_path(@tag), class: "btn btn-warning" %>
+<%= link_to 'Retour Tags', administration_tags_path, class: "btn btn-info" %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_tags_path do %>Tags<% end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_tag_path(@tag) do %><%= @tag.name %><%end %></li>
+<% end %>
+
+
+<%= container_card("Informations générales") do %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tag.name %>
+</p>
+
+<p>
+  <strong>Research name:</strong>
+  <%= @tag.research_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tag.description %>
+</p>
+
+<p>
+  <strong>Popularity order:</strong>
+  <%= @tag.popularity_order %>
+</p>
+
+<p>
+  <strong>Small image:</strong>
+  <%= @tag.small_image %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @tag.slug %>
+</p>
+
+<% end %>

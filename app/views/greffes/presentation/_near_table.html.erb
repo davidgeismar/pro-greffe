@@ -1,0 +1,27 @@
+<div class="row">
+		<div class="text-center pagination-hd">
+			<%= will_paginate greffes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+		</div>
+</div>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% greffes.each do |greffe| %>
+      <tr>
+        <td><%= link_to greffe.name, greffe %></td>
+        <td><%= @greffe.distance_from(greffe).to_f.round(2) %> km</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="row">
+		<div class="text-center pagination-hd">
+			<%= will_paginate greffes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+		</div>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="fr">
+<head>
+  <%= render partial: 'layouts/meta_common' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+  <%= render partial: "layouts/analytics_meta" %>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3LPZXN"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <% if !content_for?(:no_navbar) %>
+    <%= render partial: 'layouts/navbar' %>
+    <% end %>
+
+    <div class="main-content">
+      <%= yield %>
+    </div>
+
+    <% if !content_for?(:no_footer) %>
+    <%= render partial: 'layouts/footer'%>
+    <% end %>
+
+
+    <!-- Modal container for everyone-->
+    <div class="modal" id="layout-modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= render partial: 'layouts/end_scripts' %>
+
+
+    <div class="footer-fixed-bottom text-center p-3 background-primary d-md-none">
+      <a href="tel:<%= PhoneGenerator.main_phone_intern %>" class="white-link"><h4><i class="fa fa-phone-square"></i> <u>Appeler un Conseiller</u></h4></a>
+    </div>
+
+
+  </body>
+  </html>

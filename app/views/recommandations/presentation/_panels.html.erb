@@ -1,0 +1,20 @@
+
+
+<div class="pagination-hd justify-content-center">
+	<%= will_paginate recommandations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+</div>
+
+
+<div class="row">
+	<%= render partial: "recommandations/presentation/panel", collection: recommandations, as: :recommandation %>
+
+</div>
+<% if recommandations.empty? %>
+<div class="alert alert-info">
+	Pas d'avis pour le moment sur l'agence <%= @greffe.name %>
+</div>
+<% end %>
+
+<div class="text-center pagination-hd">
+	<%= will_paginate recommandations, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+</div>

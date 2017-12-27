@@ -1,0 +1,52 @@
+<%= form_with(model: recall, local: false) do |form| %>
+<% if recall.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(recall.errors.count, "error") %> prohibited this recall from being saved:</h2>
+
+  <ul>
+    <% recall.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :phone, "Téléphone" %>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone"></i></span>
+    <%= form.text_field :phone, id: :recall_phone, class: "form-control", placeholder: "0172180295", required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :recall_date, "Date de rappel" %>
+  <div class="input-group">
+    <span class="input-group-addon add-on" ><i class="fa fa-calendar"></i></span>
+    <%= form.text_field :recall_date, id: :recall_recall_date, class: "form_datetime form-control" %>
+  </div>
+</div>
+
+<!-- <div class="input-append date form_datetime">
+<input size="16" type="text" value="" name="recall_recall_date" readonly class="form-control">
+<span class="add-on"><i class="fa fa-calendar"></i></span>
+</div> -->
+
+<!-- <div class="form-group">
+<%= form.label :recall_now, "Rappeler moi maintenant !" %>
+<%= form.check_box :recall_now, id: :recall_recall_now %>
+</div> -->
+
+<div class="form-group">
+  <%= form.label :reason, "Raison (Optionnel)" %>
+  <%= form.text_area :reason, id: :recall_reason, class: "form-control" %>
+</div>
+
+<div class="actions text-center">
+  <%= form.submit "Me rappeler", class: "btn btn-success btn-lg" %>
+</div>
+<% end %>
+
+<div class="text-center">
+  <i>Greffe sans Frais est un service 100% gratuit</i>
+</div>

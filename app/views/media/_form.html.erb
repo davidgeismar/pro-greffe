@@ -1,0 +1,52 @@
+<%= form_with(model: medium, local: true) do |form| %>
+  <% if medium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medium.errors.count, "error") %> prohibited this medium from being saved:</h2>
+
+      <ul>
+      <% medium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :medium_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :internal_name %>
+    <%= form.text_field :internal_name, id: :medium_internal_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :medium_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :popularity_order %>
+    <%= form.number_field :popularity_order, id: :medium_popularity_order %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medium_kind %>
+    <%= form.text_field :medium_kind, id: :medium_medium_kind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_link %>
+    <%= form.text_field :video_link, id: :medium_video_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :small_image %>
+    <%= form.text_field :small_image, id: :medium_small_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,88 @@
+<%= provide(:title, "Article : #{@article.name}" ) %>
+<%= content_for(:side_buttons) do %>
+
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>Greffe Sans Frais <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_articles_path do %>Articles<% end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_article_path(@article) do %><%= @article.name %><%end %></li>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= container_card("Administration") do %>
+    <%= link_to 'Voir sur le site', @article, class:"btn btn-primary" %>
+    <%= link_to 'Modifier', edit_administration_article_path(@article), class:"btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <%= container_card("Informations Générales") do %>
+    <p>
+      <strong>Catégories de l'article:</strong>
+      <% @article.categories.each do |category|  %>
+      <%= link_to category.name, administration_category_path(category), class: "btn btn-sm btn-info" %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong>Tags de l'article:</strong>
+      <% @article.tags.each do |tag|  %>
+      <%= link_to tag.name, administration_tag_path(tag), class: "btn btn-sm btn-info" %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= @article.date %>
+    </p>
+
+    <p>
+      <strong>Titre: </strong>
+      <%= @article.name %>
+    </p>
+
+    <p>
+      <strong>Introduction:</strong>
+      <%= @article.introduction %>
+    </p>
+
+    <p>
+      <strong>Hero image:</strong>
+      <%= @article.hero_image %>
+    </p>
+
+    <p>
+      <strong>Petite Image URL:</strong>
+      <%= @article.small_image_url %>
+    </p>
+
+    <p>
+      <strong>Petite Image:</strong>
+      <%= image_tag @article.small_image, class: "img-fluid img-100" %>
+    </p>
+
+    <p>
+      <strong>Slug:</strong>
+      <%= @article.slug %>
+    </p>
+
+    <p>
+      <strong>Visible:</strong>
+      <%= boolean_display @article.visible %>
+    </p>
+    <% end %>
+
+    <%= container_card("Contenu") do %>
+    <div>
+      <strong>Description:</strong>
+      <%= @article.description.to_s.html_safe %>
+    </div>
+    <% end %>
+
+  </div>
+</div>

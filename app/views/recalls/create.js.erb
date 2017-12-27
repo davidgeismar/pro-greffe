@@ -1,0 +1,17 @@
+
+$(function () {
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    'event' : 'WebsiteEvent',
+    'eventCategory' : 'RecallEvent',
+    'eventAction' : 'MadeRecall',
+    'eventLabel' : 'MadeRecall',
+    'eventValue' : 'MadeRecall'
+  })
+
+
+$('#layout-modal .modal-title').html("<h2 class='text-center color-dark-blue text-uppercase'>Informations enregistrées</h2>");
+$('#layout-modal .modal-body').html('Votre demande a été prise en compte vous allez être rappelé par un de nos conseillers. Bonne journée.');
+$('#layout-modal').modal();
+
+})

@@ -1,0 +1,34 @@
+// Place all the styles related to the recalls controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.headline {
+    max-width: 100%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.datetimepicker {
+  margin-top: 63px;
+  width: 450px;
+  .table-condensed {
+    td.active, span.hour.active, span.minute.active {
+      background-color: $primary !important;
+      background-image: none;
+    }
+  }
+}
+
+
+@media screen and (max-width: 565px) {
+  .datetimepicker {
+    width: 345px;
+  }
+}
+
+.table-condensed {
+  width: 100%;
+  color: inherit;
+}

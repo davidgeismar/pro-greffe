@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Recalls</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phone</th>
+      <th>Recall date</th>
+      <th>Recall now</th>
+      <th>Reason</th>
+      <th>Origin</th>
+      <th>Recall sent</th>
+      <th>Reason</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recalls.each do |recall| %>
+      <tr>
+        <td><%= recall.phone %></td>
+        <td><%= recall.recall_date %></td>
+        <td><%= recall.recall_now %></td>
+        <td><%= recall.reason %></td>
+        <td><%= recall.origin %></td>
+        <td><%= recall.recall_sent %></td>
+        <td><%= recall.reason %></td>
+        <td><%= link_to 'Show', recall %></td>
+        <td><%= link_to 'Edit', edit_recall_path(recall) %></td>
+        <td><%= link_to 'Destroy', recall, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recall', new_recall_path %>

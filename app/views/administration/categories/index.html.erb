@@ -1,0 +1,20 @@
+<%= provide(:title, "Liste des catégories" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Créer une nouvelle catégorie', new_administration_category_path, class: "btn btn-success" %>
+<% end %>
+
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_categories_path do %>Categories<% end %></li>
+<% end %>
+
+
+
+<%= container_card("Recherche ") do %>
+<%= render partial: "administration/categories/presentation/search_filter"%>
+<% end %>
+
+<%= container_card("Liste des catégories") do %>
+<%= render partial: "administration/categories/presentation/table", locals:{categories: @categories } %>
+<% end %>

@@ -1,0 +1,45 @@
+<%= provide(:title, "#{@city.name} - greffes") %>
+<%= provide(:description, "Toutes les greffes dans la ville #{@city.name}. Les horaires des agences et la présence de distributeur. Les frais des greffes") %>
+<%= provide(:keywords, "département, greffes, distributeurs, #{@city.name}, informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
+
+<div class="background-grey pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center page-header"> Les greffes à <%= @city.name %></h1>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <h2>Les Greffes présentes à <%= @city.name %></h2>
+        <div class="background-white p-2 border-shadow">
+          Il y a <%= @greffes.count %> Greffes présentes dans la ville de <%= @city.name %>. Ces <%= @greffes.count %> Greffes représentent un
+          nombre total d'agences de <%= @greffes.count %> greffes. Cliquez sur l'une d'entre elles ci dessous afin d'avoir
+          tous les renseignements pratiques sur l'greffe.
+        </div>
+        <%= render partial: "greffes/presentation/panels", locals:{greffes: @greffes, city: @city} %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h2>Les greffes</h2>
+        <%= render partial: "greffes/presentation/panels", locals:{greffes: @greffes} %>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <h2>Carte</h2>
+        <%= render partial: "cities/presentation/map", locals:{greffes: @greffes} %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<% if current_administrator %>
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>
+<% end %>

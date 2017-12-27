@@ -1,0 +1,86 @@
+<%= provide(:title, "Les greffes par département") %>
+<%= provide(:description, "Toutes les greffes par département en France. Informations - Horaires - Changement de Greffe") %>
+<%= provide(:keywords, "informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
+
+
+<div class="background-grey pb-5">
+
+  <h1 class="page-header text-center">Les greffes par département</h1>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav aria-label="breadcrumb" role="navigation">
+          <ol class="breadcrumb background-grey">
+            <li class="breadcrumb-item" >
+              <%= link_to "Greffe Sans Frais", root_path %>
+            </li>
+            <li class="breadcrumb-item active" >
+              <%= link_to "greffes", departments_path %>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="col-md-12 background-white">
+         <div id="map" style="width: 100%; height:30rem"></div>
+        <%= render partial: "departments/presentation/table", locals:{departments: @departments} %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<a href=""></a>
+<% content_for(:end_script)  do %>
+
+<script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 48.85, lng: 2.3522}
+        });
+         map.setZoom(4)
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var agenciesData = <%= @locations.to_json.html_safe %>;
+        var markers = agenciesData.map(function(agencyData, i) {
+                        var marker = new google.maps.Marker({
+                                      position: agencyData[0],
+                                      label: labels[i % labels.length]
+                                    });
+                        var contentString = `<div>
+                                                <h2>${agencyData[1]['name']}</h2>
+                                                <p>${agencyData[1]['description']}</p>
+                                                <a href="${'/agences-bancaires/'+ agencyData[1]['slug']}">En Savoir plus</a>
+                                              </div>`
+                        var infowindow = new google.maps.InfoWindow({
+                          content: contentString
+                        });
+                        marker.addListener('click', function() {
+                          infowindow.open(map, marker);
+                        });
+                        return marker
+                      });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYcRYMZF-1C4ddzfBTCrWwpL1M7dzvJVI&callback=initMap">
+    </script>
+<%end %>

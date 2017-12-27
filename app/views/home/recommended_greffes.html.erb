@@ -1,0 +1,76 @@
+<%= provide(:title, "Les meilleures Greffes du moment") %>
+<%= provide(:description, "Les meilleures Greffes et tarifs du moment. Voilà les établissements que Greffe sans Frais vous conseille.") %>
+<%= provide(:keywords, "Greffes sans frais, Greffes en ligne, néoGreffes,  informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center mb-3 mt-4">Choisissez une Greffe sans frais !</h2>
+      <p class="text-center mb-5">
+        <span class= 'extra-strong'>Il n'y a aucune bonne raison de payer des frais bancaires. Découvrez les offres de ses trois Greffes en ligne :</span>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="pd-1 col-md-4 col-sm-12">
+        <a href="https://clk.tradedoubler.com/click?p=200547&a=2979945&g=20422460" class="link-affiliated">
+          <div class="card">
+            <div class="card__image card__image--monabanq"></div>
+            <div class="card__content">
+              <div class="card__title">Monabanq</div>
+              <div class="card-text mb-3 text-center">
+                <p class= "green insist">“Élu service Client de l’Année 2018”</p>
+              </div>
+              <ul class="card__text list-sans-frais ">
+                <li>Offre sans conditions de revenus et la souscription revient à 2€ / mois pour une carte visa classique</li>
+                <li>Offre de bienvenue de 120€ à l'ouverture de votre compte.</li>
+              </ul>
+              <button class="btn btn-primary btn-block btn-lg">Découvrir l'offre</button>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="pd-1 col-md-4 col-sm-12">
+        <%= link_to redirection_go_path(url:"http://www.awin1.com/awclick.php?gid=309815&mid=6992&awinaffid=425191&linkid=643198&clickref="), class: "link-affiliated" do %>
+          <div class="card">
+            <div class="card__image card__image--boursorama"></div>
+            <div class="card__content">
+              <div class="card__title">Boursorama Greffe</div>
+              <div class="card-text mb-3 text-center">
+                <p class= "green insist">“80€ offert à l'ouverture du compte”</p>
+              </div>
+              <ul class="card__text list-sans-frais ">
+                <li>Offre "Welcome": 80€ offert dès l'ouverture du compte</li>
+                <li>Aucune conditions de revenus</li>
+                <li>Délivrance d'une carte à autorisation systématique</li>
+              </ul>
+              <button class="btn btn-primary btn-block btn-lg">Découvrir l'offre</button>
+            </div>
+          </div>
+        <%end%>
+      </div>
+
+
+      <div class="pd-1 col-md-4 col-sm-12">
+        <%= link_to redirection_go_path(url:"http://n26.go2cloud.org/aff_ad?campaign_id=86&aff_id=1642&format=url"), class: "link-affiliated" do %>
+          <div class="card">
+            <div class="card__image card__image--n26"></div>
+            <div class="card__content">
+              <div class="card__title">N26</div>
+              <div class="card-text mb-3 text-center">
+                <p class= "green insist">“Aucun Frais Bancaire à l'étranger”</p>
+              </div>
+              <ul class="card__text list-sans-frais ">
+                <li>Carte gratuite à vie</li>
+                <li>Aucune conditions de revenus</li>
+                <li>Délivrance d'une carte à autorisation systématique</li>
+              </ul>
+              <button class="btn btn-primary btn-block btn-lg">Découvrir l'offre</button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+</div>

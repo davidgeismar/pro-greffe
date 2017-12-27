@@ -1,0 +1,32 @@
+<%= provide(:title, "Les articles et conseils de Greffe sans Frais") %>
+<%= provide(:description, "Tous les articles et les conseils pour choisir une Greffe sans frais") %>
+<%= provide(:keywords, "informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
+
+
+<div class="background-grey pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="page-header text-center">Les Articles</h1>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-12">
+        <%= render partial: "articles/presentation/panels", locals:{articles: @articles} %>
+
+
+        <% if administrator_signed_in? %>
+        <%= link_to 'Nouvel article', new_article_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Département</th>
+      <th>Ville</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% greffes.each do |greffe| %>
+      <tr>
+        <td><%= link_to greffe.name, greffe %></td>
+        <td><%= link_to greffe.department.try(:name), greffe.department %></td>
+        <td><%= greffe.city_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

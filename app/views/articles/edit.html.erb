@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Article : <%= @article.name %></h1>
+
+      <%= render 'form', article: @article %>
+
+      <%= link_to 'Voir page publique', @article %> |
+      <%= link_to 'Retour Liste articles', articles_path %>
+    </div>
+  </div>
+</div>

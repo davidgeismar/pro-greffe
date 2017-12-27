@@ -1,0 +1,56 @@
+// Place all the styles related to the greffeAgencies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.greffe-single-map{
+  height: 400px;
+  width: 100%;
+}
+
+.xl-modal{
+  max-width: 900px;
+}
+
+.table-striped{
+  .fee-row{
+    td{
+      background-color:#F6D6D5;
+    }
+  }
+}
+
+.strong {
+  font-weight: bold;
+}
+.extra-strong {
+  background-color: #FFFD7E;
+  font-weight: bold;
+}
+
+.extra-strong-danger {
+  background-color:#F6D6D5;
+  font-weight: bold;
+}
+
+
+.card-affiliated {
+  margin-bottom: 30px;
+  border-radius: 12% 12% 0 0;
+}
+
+.strong-opportunity {
+  background-color: #FFFD7E;
+  color: #58C885;
+  font-weight: bold;
+  font-size: 20px
+
+}
+
+a.link-affiliated{
+  color: black;
+  &:hover{
+    color: black;
+    text-decoration: none;
+  }
+}

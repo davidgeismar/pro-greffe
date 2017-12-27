@@ -1,0 +1,300 @@
+$alan-green: rgb(8,199,104);
+$better-blue: #76bcc2;
+$dark-blue: #011386;
+$light-blue: #0b4c65;
+$orange: rgb(253, 117, 83);
+$yellow: rgb(250, 170,65);
+
+// DEFINE MAIN COLORS
+$blue: #3294f0; // PRIMARY
+$green: #00cc7e;
+
+$dark-grey: rgb(128,128,128); // SECONDARY
+$light-grey: #f7f9fa; // TERTIARY
+$border-grey: rgba(0, 0, 0, 0.125);
+$white: white;
+
+
+// REAL COLORS TO USE
+$primary: $green;
+$secondary: $blue;
+$tertiary: $dark-blue;
+$text-color: #083749;
+$white-color: white;
+
+// TRANSITION COLORS TO SUPPRESS
+
+// SOCIAL COLORS
+$linkedin: #4393BB;
+$pinterest: #C92228;
+$twitter: #4099ff;
+$facebook: #3B5998;
+$google-plus: #db5a3c;
+
+// DEFAULT TRANSITION TIME
+$time: 0.5s;
+
+
+@mixin all-transition($time){
+  -webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
+  -ms-transition: all $time ease;
+  -o-transition: all $time ease;
+  transition: all $time ease;
+}
+
+@mixin color-transition($time) {
+  -webkit-transition: color $time ease;
+  -moz-transition: color $time ease;
+  -ms-transition: color $time ease;
+  -o-transition: color $time ease;
+  transition: color $time ease;
+}
+
+@mixin background-color-transition($time) {
+  -webkit-transition: background-color $time ease;
+  -moz-transition: background-color $time ease;
+  -ms-transition: background-color $time ease;
+  -o-transition: background-color $time ease;
+  transition: background-color $time ease;
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+@mixin landing-font {
+
+}
+
+// TEXT COLOR
+
+.color-primary{
+  color: $primary;
+}
+.color-secondary{
+  color: $secondary;
+}
+.color-tertiary{
+  color: $tertiary;
+}
+
+.color-yellow{
+  color: $yellow;
+}
+
+.color-text{
+  color: $text-color
+}
+.color-white{
+  color: $white-color;
+}
+
+// NEW BTN STYLES
+
+
+/* line 55, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/_buttons.scss */
+.btn-secondary {
+  color: #fff;
+  background-color: $secondary;
+  border-color:  $secondary;
+  white-space: normal !important;
+}
+/* line 11, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_hover.scss */
+.btn-secondary:hover {
+  color: #fff;
+  background-color: darken($secondary, 10%);
+  border-color: darken($secondary, 10%);
+}
+/* line 21, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-secondary:focus, .btn-secondary.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+/* line 32, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-secondary.disabled, .btn-secondary:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+/* line 38, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: lighten( $secondary, 10% );
+  background-image: none;
+  border-color: lighten( $secondary, 10% );
+}
+
+
+// COLOR PRIMARY
+.btn-color-primary {
+  color: #fff;
+  background-color: $primary;
+  border-color:  $primary;
+  white-space: normal !important;
+}
+/* line 11, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_hover.scss */
+.btn-color-primary:hover {
+  color: #fff;
+  background-color: darken($primary, 10%);
+  border-color: darken($primary, 10%);
+}
+/* line 21, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-color-primary:focus, .btn-secondary.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+/* line 32, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-color-primary.disabled, .btn-color-primary:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+/* line 38, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-color-primary:active, .btn-color-primary.active, .show > .btn-color-primary.dropdown-toggle {
+  color: #fff;
+  background-color: lighten( $primary, 10% );
+  background-image: none;
+  border-color: lighten( $primary, 10% );
+}
+
+
+// COLOR PRIMARY
+.btn-yellow {
+  color: #fff;
+  background-color: $yellow;
+  border-color:  $yellow;
+  white-space: normal !important;
+}
+/* line 11, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_hover.scss */
+.btn-yellow:hover {
+  color: #fff;
+  background-color: darken($yellow, 10%);
+  border-color: darken($yellow, 10%);
+}
+/* line 21, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-yellow:focus{
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+/* line 32, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-yellow:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+/* line 38, /Users/Fourrier/Desktop/Programmation/bankizy/vendor/assets/stylesheets/bootstrap/mixins/_buttons.scss */
+.btn-yellow:active, .btn-yellow.active, .show > .btn-yellow.dropdown-toggle {
+  color: #fff;
+  background-color: lighten( $yellow, 10% );
+  background-image: none;
+  border-color: lighten( $yellow, 10% );
+}
+
+.btn-default{
+  color: #292b2c;
+    background-color: #fff;
+    border-color: #ccc;
+      white-space: normal !important;
+}
+
+
+.card-color-primary{
+  background-color: $primary;
+  border-color: $primary
+}
+
+
+// BACK COLOR
+
+.background-primary{
+  background-color: $primary !important;
+}
+
+.background-secondary{
+  background-color: $secondary;
+}
+
+.background-tertiary{
+  background-color: $tertiary;
+}
+
+.background-grey{
+  background-color: $light-grey;
+}
+
+.background-dark-grey{
+  background-color: $dark-grey;
+}
+
+.background-white{
+  background-color: $white;
+}
+
+.background-light-blue{
+  background-color: $light-blue;
+}
+
+.background-dark-blue{
+  background-color: $dark-blue;
+}
+
+// BACKGROUND EFFECTS
+
+.background-darken{
+  background-color: rgba(0,0,0,0.6);
+}
+
+
+
+// SOCIAL
+
+.color-facebook{
+  color: $facebook;
+}
+
+.color-twitter{
+  color: $twitter;
+}
+
+.color-google-plus{
+  color: $google-plus;
+}
+
+
+.background-facebook{
+  @include color-transition($facebook);
+  background-color: $facebook;
+  &:hover {
+    background-color: $facebook;
+  }
+}
+
+.background-twitter{
+  @include color-transition($twitter);
+  background-color: $twitter;
+   &:hover {
+     background-color: $twitter;
+  }
+}
+
+.background-google-plus{
+  @include color-transition($google-plus);
+  background-color: $google-plus;
+   &:hover {
+     background-color: $google-plus;
+  }
+}
+
+
+.border-grey{
+  border: 1px solid rgba(0, 0, 0, 0.125);
+
+}
+
+.border-color-grey{
+  border-color: rgba(0, 0, 0, 0.125);
+}

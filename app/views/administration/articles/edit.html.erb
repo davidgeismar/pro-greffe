@@ -1,0 +1,9 @@
+<%= provide(:title, "Modification article : #{@article.name}" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to "Retour à l'article", administration_article_path(@article), class: "btn btn-success" %>
+<% end %>
+
+
+<%= container_card("Formulaire") do %>
+<%= render 'form' %>
+<% end %>

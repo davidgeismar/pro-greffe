@@ -1,0 +1,22 @@
+<%= provide(:title, "Liste des articles" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Créer un nouvel article', new_administration_article_path, class: "btn btn-success" %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>Greffe sans frais <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_articles_path do %>Articles<% end %></li>
+<% end %>
+
+
+<%= container_card("Recherche ") do %>
+<%= render partial: "administration/articles/presentation/search_filter"%>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= container_card("Liste des articles") do %>
+    <%= render partial: "administration/articles/presentation/table", locals:{articles: @articles} %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<%= provide(:title, "Nouvel article" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Retour aux articles', administration_articles_path, class: "btn btn-success" %>
+<% end %>
+
+
+<%= container_card("Formulaire") do %>
+<%= render 'form' %>
+<% end %>

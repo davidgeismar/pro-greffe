@@ -1,0 +1,67 @@
+<%= provide(:title, "Greffe : #{@greffe.name}" ) %>
+<%= content_for(:side_buttons) do %>
+
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>Banque Sans Frais <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_greffes_path do %>Articles<% end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_greffe_path(@greffe) do %><%= @greffe.name %><%end %></li>
+<% end %>
+
+
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="row">
+
+      <div class="col-md-12">
+        <%= container_card("Informations Générales") do %>
+        <p>
+          <strong>Nom : </strong>
+          <%= @greffe.name %>
+        </p>
+
+        <p>
+          <strong>Petite Image URL:</strong>
+          <%= @greffe.small_image_url %>
+        </p>
+
+        <p>
+          <strong>Petite Image:</strong>
+          <%= image_tag @greffe.small_image, class: "img-fluid img-100" %>
+        </p>
+
+        <p>
+          <strong>Grande Image URL:</strong>
+          <%= @greffe.big_image_url %>
+        </p>
+
+        <p>
+          <strong>Grande Image:</strong>
+          <%= image_tag @greffe.big_image, class: "img-fluid img-100" %>
+        </p>
+
+        <p>
+          <strong>URL:</strong>
+          <%= @greffe.slug %>
+        </p>
+
+        <% end %>
+
+        <%= container_card("Contenu") do %>
+        <div>
+          <strong>Description:</strong>
+          <%= @greffe.description.to_s.html_safe %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <%= container_card("Administration") do %>
+    <%= link_to 'Voir sur le site', @greffe, class:"btn btn-primary" %>
+    <%= link_to 'Modifier', edit_administration_greffe_path(@greffe), class:"btn btn-warning" %>
+    <% end %>
+  </div>
+</div>

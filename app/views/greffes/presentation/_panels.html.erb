@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+	<div class="col-md-12 justify-content-center">
+		<div class="pagination-hd justify-content-center">
+			<%= will_paginate greffes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<%= render partial: "greffes/presentation/panel", collection:  greffes, as: :greffe %>
+</div>
+
+<div class="row">
+	<div class="text-center pagination-hd">
+		<%= will_paginate greffes, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+	</div>
+</div>

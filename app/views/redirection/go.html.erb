@@ -1,0 +1,44 @@
+<%= provide(:title, "Redirection Greffe sans Frais") %>
+<%= provide(:description, "Greffe sans Frais vous permet de bénéficier des dernières offres des Greffes en ligne") %>
+<%= provide(:keywords, "frais bancaires, Greffe sans frais, Greffe en ligne")%>
+<%= provide(:shareable, true) %>
+
+<section class="landing-section back-image-new-default color-white padding-bottom-0"%>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="text-center color-white mt-2" itemprop="headline">Greffe sans frais</h1>
+        <h2 class="text-center color-white f-letter">Réduisez vos frais bancaires avec Greffe sans Frais</h2>
+        <br/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="landing-section background-white padding-bottom-0"%>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="text-center" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+          <%= image_tag "infinity.gif", class: "img-100", itemprop: "url" %>
+        </div>
+        <div>
+          Patientez quelques secondes pendant la redirection
+        </div>
+        <br/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for(:end_script) do %>
+<script>
+$(function(){
+  setTimeout(redirect_to_url, 2000);
+})
+function redirect_to_url(){
+  var url = "<%= @url.to_s.html_safe %>";
+  document.location.href=url;
+}
+</script>
+<% end %>

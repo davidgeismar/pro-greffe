@@ -1,0 +1,309 @@
+<%= provide(:title, @greffe.name) %>
+<%= provide(:description, "Informations - Horaires - Frais - Changement de Greffe - #{@greffe.name}. Ville #{@greffe.city.name}. Agence de la Greffe #{@greffe.name} - Détails des frais de votre Greffe.") %>
+<%= provide(:keywords, "Informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
+<%= provide(:image, @greffe.small_image_url) %>
+
+<div class="container-fluid" itemscope itemtype="http://schema.org/GreffeOrCreditUnion">
+  <div class="row">
+    <div class="col-md-4 order-md-1 order-sm-2 order-2">
+      <div class="text-center d-none d-sm-block">
+        <%= image_tag @greffe.big_image_wrapper, class:"img-fluid img-400", itemprop:"logo", itemprop: "image" %>
+      </div>
+      <div class="sticky-top-navbar">
+        <section class="page-section p-3 ">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-center text-uppercase">Être mis en relation</h3>
+              <p>
+                Tarifs, frais de <%= @greffe.name %>
+              </p>
+              <p>
+                Département: <%= link_to @department.name, @department %>
+              </p>
+              <p>
+                Greffe: <%= link_to @greffe.name, @greffe %>
+              </p>
+              <p>
+                Ville: <%= link_to @greffe.city.try(:name), @greffe.city %>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section class="page-section p-3 ">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <%= link_to new_recall_path, remote: true,  class: "btn btn-secondary" do %>
+              Trouver une meilleure Greffe <br />
+              <%= PhoneGenerator.main_phone %>
+              <% end %>
+            </div>
+          </div>
+        </section>
+
+        <hr / >
+
+        <section class="page-section p-3 ">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <%= link_to "https://www.bankizy.com/formulaires-comparaison", class: "btn btn-primary" do %>
+              Comparer les Greffes
+              <% end %>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-8 order-md-2 order-sm-1 order-1">
+      <div class="row pt-2">
+        <div class="col-md-12">
+          <h1 class="text-center mt-sm-3 mt-3 mt-md-0" itemprop="name"><%= @greffe.name %></h1>
+          <div class="lead text-center" itemprop="address">
+            <%= @greffe.complete_address %>
+          </div>
+        </div>
+      </div>
+
+      <section class="page-section">
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <div class="pt-1">
+              <div>
+                <%= link_to "tel:#{@greffe.phone_wrapper}", class: "btn btn-color-primary btn-block", itemprop: "telephone", content: @greffe.phone_wrapper do %>
+                <strong><i class="fa fa-phone"></i> Téléphone: </strong> <%= @greffe.phone_wrapper %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="pt-1">
+
+              <div>
+                <%= link_to @greffe.website_url, class: "btn btn-color-primary btn-block", itemprop: "url" do %>
+                <strong><i class="fa fa-laptop"></i> Site web: </strong><%=  @greffe.website_url %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="pt-1">
+              <% if !@greffe_code.blank? %>
+              <div class="">
+                <strong><i class="fa fa-university"></i> Code Greffe: </strong><%= @greffe_code%></h1>
+              </div>
+              <% end %>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+
+      <section class="page-section pt-2 Greffe-times">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Les horaires de l'agence</h2>
+            <p class="text-left" itemprop="openingHours">
+              <%= render partial: "greffes/presentation/opening_hours", locals:{greffe: @greffe} %>
+            </p>
+            <meta itemprop="publicAccess" content="true"/>
+            <meta itemprop="smokingAllowed" content="false"/>
+          </div>
+        </div>
+
+      </section>
+
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Les frais de l'agence</h2>
+            <div class="text-left">
+              Cette agence fait partie de la Greffe <%= link_to @greffe.name, @greffe %>. Voici les frais, prix et les tarifs bancaires qui s'appliquent pour votre agence:
+            </div>
+            <%# render partial: "greffes/presentation/fees_table", locals:{greffe: @greffe} %>
+          </div>
+        </div>
+
+      </section>
+
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Adresse exacte de l'agence</h2>
+            <div class="text-center">
+              <%= @greffe.complete_address %>
+            </div>
+
+            <div class="text-center" itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+              <strong itemprop="latitude">Latitude: <%= @greffe.latitude %></strong>
+              <strong itemprop="longitude">Longitude: <%= @greffe.longitude %></strong>
+            </div>
+            <%= render partial: "greffes/presentation/map", locals:{greffe: @greffe} %>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Greffes à proximité de<%= @greffe.name %>  </h2>
+            <%= render partial: "greffes/presentation/near_table", locals:{greffes: @near_greffes} %>
+
+            <h2 class="text-center">Autres greffes à proximité </h2>
+            <%# render partial: "greffes/presentation/near_table", locals:{greffes: @near_greffes_other_greffe} %>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Changer de Greffe</h2>
+            <p class="text-left">
+              Vous désirez changer de Greffe ? Vous voulez un comparatif détaillé de chaque Greffe ? Nos conseillers et notre plateforme
+              vous aident à faire le bon choix. Appelez-nous ou comparez les Greffes pour faire le meilleur choix.
+              Nous vous proposerons les meilleures Greffes et la meilleure greffe en fonction de votre profil.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Négocier vos frais dans votre agence</h2>
+            <p class="text-left">
+              Vous ne voulez pas changer de Greffe mais vous voulez réduire vos frais. Nos conseillers se tiennent à votre disposition pour vous aider dans cette démarche.
+              De nombreux frais et tarifs bancaires peuvent être négociés à <%= link_to @greffe.name, @greffe %>. Il suffit de connaître les grilles tarifaires ainsi que les discours à tenir
+              à votre conseiller d'agence. Vous pouvez nous contacter pour des conseils gratuits ou lire  <%= link_to "notre article", "/negocier-frais-bancaires" %>
+            </p>
+            <p>
+              <%# render partial: "greffes/presentation/Greffe_affiliation" %>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Comparer les Greffe</h2>
+            <p class="text-left">
+              Comparer les services et les tarifs de l'agence <%= @greffe.name %> avec les autres agences autour de vous. Trouvez la Greffe qui vous
+              correspond. Pour effectuer une simulation personnalisée en moins de 30 minutes nous vous
+              recommandons <%= link_to "Bankizy", "https://www.bankizy.com" %>
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="text-center">Donnez votre avis sur l'greffe <%= @greffe.name %></h2>
+            <div>
+              <%= render partial: "recommandations/presentation/panels", locals:{recommandations: @recommandations} %>
+            </div>
+          </div>
+
+          <div class="col-md-12 mt-3">
+
+            <h3>Postez votre avis sur l'agence</h3>
+            <% recommandation = Recommandation.new %>
+
+            <%= form_with(model: recommandation, local: true, url: { controller: "recommandations", action: "public_create" },) do |form| %>
+            <% if recommandation.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(recommandation.errors.count, "error") %> prohibited this recommandation from being saved:</h2>
+
+              <ul>
+                <% recommandation.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+
+            <%= form.hidden_field :greffe_id, value: @greffe.id %>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= form.label :email, "Votre email" %>
+                  <%= form.text_field :email, id: :recommandation_email, class: "form-control" %>
+                  <small>Il ne sera pas rendu public</small>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <%= form.label :author, "Votre Nom" %>
+                  <%= form.text_field :author, id: :recommandation_author, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :rating, "Note" %>
+              <%= form.number_field :rating, id: :recommandation_rating, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= form.label :comment, "Commentaires" %>
+              <%= form.text_area :comment, id: :recommandation_comment, class: "form-control", rows: 5 %>
+            </div>
+
+            <div class="actions text-center">
+              <%= form.submit "Envoyer", class: "btn btn-secondary"%>
+            </div>
+            <% end %>
+            <br />
+            <br />
+            <br />
+
+          </div>
+
+
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<%= render partial: "greffes/modal_fees", locals:{greffe: @greffe, greffe: @greffe} %>
+<% content_for(:end_script)  do %>
+  <script type="text/javascript">
+    var countPopup = 0
+    var showPopup = function(){
+        $(window).scroll(function(){
+          if (window.countPopup < 1 && $(window).width() > 950) {
+            console.log('tat')
+            $(".lg-modal-agency-fees").modal()
+          }
+          else if (window.countPopup < 1 && $(window).width() <= 950) {
+            console.log('tut')
+            $(".sm-modal-agency-fees").modal()
+          }
+          countPopup += 1
+        })
+      }
+    $(document).ready(function(){
+      setTimeout(function(){showPopup();}, 1500 );
+    })
+  </script>
+<% end %>

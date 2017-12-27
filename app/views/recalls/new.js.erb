@@ -1,0 +1,27 @@
+// Fill the Modal of the layout and then displays it
+$(function() {
+
+	window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+		'event' : 'WebsiteEvent',
+		'eventCategory' : 'RecallEvent',
+		'eventAction' : 'AskRecall',
+		'eventLabel' : 'AskRecall',
+		'eventValue' : '1'
+	})
+
+	$('#layout-modal .modal-title').html("<h2 class='text-center color-dark-blue text-uppercase'>Rendez-vous Greffe-sans-frais</h2>");
+	$('#layout-modal .modal-body').html('<%= j render partial: "recalls/form", locals:{recall: @recall, page_origin: @page_origin} %>');
+	$('#layout-modal').modal();
+
+
+
+	$(".form_datetime").datetimepicker({
+		format: "dd MM yyyy - hh:ii",
+		autoclose: true,
+		todayBtn: true,
+		pickerPosition: "bottom-right",
+		language: 'fr'
+
+	});
+})

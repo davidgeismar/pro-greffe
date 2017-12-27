@@ -1,0 +1,26 @@
+<header class="app-header navbar">
+  <button class="navbar-toggler mobile-sidebar-toggler hidden-lg-up" type="button">☰</button>
+
+  <%= link_to "BO BSF", root_path, class: "navbar-brand" %>
+  <ul class="nav navbar-nav hidden-md-down">
+    <li class="nav-item">
+      <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
+    </li>
+
+    <li class="nav-item px-1">
+      <%= link_to "Site public", root_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item px-1">
+      <%= link_to "Se déconnecter", destroy_administrator_session_path, method: 'delete', class: "nav-link" %>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item hidden-md-down">
+      <% if administrator_signed_in? %>
+        <%= link_to destroy_administrator_session_path, :method => :delete, class: "right-bar-toggle waves-effect waves-light" do %>
+        <i class="fa fa-power-off"></i>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+</header>

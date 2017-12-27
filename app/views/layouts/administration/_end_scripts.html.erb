@@ -1,0 +1,99 @@
+<%= javascript_include_tag 'administration' %>
+
+<script>
+$(function() {
+  // TO Start the tooltip on a class basis
+  $('.tooltip-tag').tooltip();
+
+  // Best in Place
+  jQuery(".best_in_place").best_in_place();
+  $('.best_in_place').bind("ajax:success", function () {toastr.success("Mise à jour effectuée", "");});
+
+  $('.summernotebis').summernote({
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['superscript', 'subscript']],
+      ['fontsize', ['fontsize', 'fontname']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['table', ['table']],
+      ['insert', ['picture', 'link', 'video']],
+      ['codeview', ['codeview']]
+    ],
+    height: 250,
+    fontNames: [ 'Verdana', 'Roboto', 'Sans-Serif'],
+    placeholder: "Décrivez ici ",
+    dialogsInBody: true,
+    callbacks: {
+      onImageUpload: function(files, editor, welEditable) {
+        sendFile(files[0], editor, welEditable);
+      }
+    },
+    popover: {
+            image: [
+                ['custom', ['imageAttributes']],
+                ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+            ],
+        },
+        lang: 'en-US', // Change to your chosen language
+        imageAttributes:{
+            imageDialogLayout:'default', // default|horizontal
+            icon:'<i class="note-icon-pencil"/>',
+            removeEmpty:false // true = remove attributes | false = leave empty if present
+        },
+        displayFields:{
+            imageBasic:true,  // show/hide Title, Source, Alt fields
+            imageExtra:false, // show/hide Alt, Class, Style, Role fields
+            linkBasic:true,   // show/hide URL and Target fields for link
+            linkExtra:false   // show/hide Class, Rel, Role fields for link
+        }
+  });
+
+  function sendFile(file, editor, welEditable) {
+    data = new FormData();
+    data.append("file", file);
+    $.ajax({
+      type: "POST",
+      url: "/administration/media/create_image_attachment",
+      data: data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: 'json',
+      success: function(data) {
+        img = document.createElement('IMG');
+        img.src = data.url;
+        img.setAttribute('id', data.image_id);
+        //$(this).summernote('insertNode', img);
+        //$(this).summernote('insertNode', img);
+        $('.summernotebis').summernote('insertImage', data.url);
+      },
+      error : function(error) {
+        alert('error');
+      },
+      complete : function(response) {
+      }
+    });
+  }
+
+  $('#taginput').tagsinput({
+    //'autocomplete_url' : "/administration/tags/autocomplete.json",
+    // typeaheadjs: {
+    //   source: ['Amsterdam', 'Washington', 'Sydney', 'Beijing', 'Cairo']
+    // }
+    'height':'100px',
+    'width':'100%',
+    'interactive':true,
+    'defaultText':'Ajouter un nouveau tag',  // Or a string with a single delimiter. Ex: ';'
+    'removeWithBackspace' : true,
+    'minChars' : 0,
+    'placeholderColor' : '#666666'
+  });
+
+
+});
+</script >
+
+<%= yield(:end_script) %>

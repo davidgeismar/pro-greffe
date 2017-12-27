@@ -1,0 +1,14 @@
+<%= provide(:title, "Nouvelle catégorie" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Retour aux catégories', administration_categories_path, class: "btn btn-success" %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_categories_path do %>Catégories<% end %></li>
+<li class="breadcrumb-item active">Nouvelle catégorie</li>
+<% end %>
+
+<%= container_card("Données") do %>
+<%= render 'form' %>
+<% end %>

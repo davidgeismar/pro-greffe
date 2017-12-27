@@ -1,0 +1,59 @@
+<%= provide(:title, "Catégorie:  #{@category.name}" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Modifier', edit_administration_category_path(@category), class: "btn btn-success" %>
+<% end %>
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_categories_path do %>Categories<% end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_category_path(@category) do %><%= @category.name %><%end %></li>
+<% end %>
+
+
+<%= container_card("Informations générales") do %>
+<p>
+  <strong>Nom de la catégorie:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @category.type %>
+</p>
+
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @category.small_image %>
+</p>
+
+<p>
+  <strong>Image visualisation:</strong>
+  <%= image_tag @category.small_image, class: "img-50" %>
+</p>
+
+<p>
+  <strong>Category type:</strong>
+  <%= @category.category_type %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= boolean_display @category.visible %>
+</p>
+
+<p>
+  <strong>Admin check:</strong>
+  <%= boolean_display @category.admin_check %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @category.slug %>
+</p>
+<% end %>

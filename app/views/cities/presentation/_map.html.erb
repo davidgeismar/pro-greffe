@@ -1,0 +1,47 @@
+<div id="map-city" class="greffe-single-map" style=""></div>
+<script src="https://maps.google.com/maps/api/js?v=3&language=fr&libraries=places&key=AIzaSyBCbLfgKSBGqaCuj5gQ0W2NJp-ggk0pWPs" type="text/javascript"></script>
+
+<% content_for(:end_script)  do %>
+<script>
+$(function () {
+
+  var locations = <%= greffes.pluck(:name, :latitude, :longitude).to_json.html_safe %>;
+    //   ['Bondi Beach', -33.890542, 151.274856, 4],
+    //   ['Coogee Beach', -33.923036, 151.259052, 5],
+    //   ['Cronulla Beach', -34.028249, 151.157507, 3],
+    //   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+    //   ['Maroubra Beach', -33.950198, 151.259302, 1]
+    // ];
+
+
+   var lat = <%= greffes.first.latitude.to_s %>;
+   var lng = <%= greffes.first.longitude.to_s %>;
+
+  //add latitude and longitude
+  var myLatlng = new google.maps.LatLng(lat, lng);
+
+  //add map options
+  var mapOptions = {
+    zoom: 13,
+    scrollwheel : false,
+    center: myLatlng
+  };
+
+  //dont show map if restaurant has not been geocoded
+  if (lat != null) {
+    //create map
+    var map = new google.maps.Map(document.getElementById('map-city'),
+    mapOptions);
+
+    var marker, i;
+    for (i = 0; i < locations.length; i++) {
+     marker = new google.maps.Marker({
+       position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+       map: map
+     });
+   }
+
+  }
+});
+</script>
+<% end %>

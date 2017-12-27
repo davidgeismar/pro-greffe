@@ -1,0 +1,15 @@
+<div class="row justify-content-center">
+		<div class="pagination-hd justify-content-center">
+			<%= will_paginate cities, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+		</div>
+</div>
+
+<div class="row">
+	<%= render partial: "cities/presentation/panel", collection: cities, as: :city %>
+</div>
+
+<div class="row justify-content-center mt-3">
+	<div class="text-center pagination-hd">
+		<%= will_paginate cities, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+	</div>
+</div>

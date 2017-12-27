@@ -1,0 +1,34 @@
+<%= form_for([:administration, @greffe ]) do |f| %>
+  <% if @greffe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@greffe.errors.count, "error") %> prohibited this greffe from being saved:</h2>
+
+      <ul>
+      <% @greffe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Nom du Greffe" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :website_url, "Url de la banque" %><br>
+    <%= f.text_field :website_url, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, "Telephone de la banque" %><br>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
+  <%= render partial: "administration/general_forms/small_image", locals:{small_imageable: @greffe, f: f} %>
+  <%= render partial: "administration/general_forms/big_image", locals:{big_imageable: @greffe, f: f} %>
+
+
+  <h3>Administration</h3>
+  <div class="actions text-center">
+    <%= f.submit "Mettre à jour", class: "btn btn-success btn-lg btn-submit-bo" %>
+  </div>
+<% end %>

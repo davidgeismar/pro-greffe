@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md background-primary fixed-top navbar-dark navbar-custom">
+	<%= link_to root_path, class: "navbar-brand text-13 p-2" do %><i class="fa fa-university"></i> GREFFE SANS FRAIS<% end %>
+
+	<button class="navbar-toggler mr-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse p-2" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<% Category.all.each do |category| %>
+			<li class="nav-item dropdown">
+			 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				 <%= category.name %>
+			 </a>
+			 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				 <% category.articles.all.each do |article| %>
+					<%= link_to article.name, article, class: "dropdown-item" %>
+				 <% end %>
+			 </div>
+		 </li>
+		 <% end %>
+			<li class="nav-item">
+				<%= link_to departments_path, class:"nav-link" do %>
+				greffes
+				<% end %>
+			</li>
+			<% if current_administrator %>
+				<li class="nav-item">
+				<%= link_to('BO', administration_dashboard_path, class: "nav-link") %>
+				</li>
+			<%end%>
+		</ul>
+	</div>
+
+	<div class="background-secondary navbar-height p-2 m-0 d-none d-lg-block">
+		<div class="text-center text-uppercase">
+			Mon conseiller
+			<%= link_to new_recall_path, remote: true, class:"text-12 nav-link " do %>
+				<div class="text-center text-12">
+					<i class="fa fa-phone"></i> <%= PhoneGenerator.main_phone%>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</nav>

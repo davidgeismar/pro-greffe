@@ -1,0 +1,15 @@
+<%= provide(:title, "Modification Tag:  #{@tag.name}" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Retour', administration_categories_path, class: "btn btn-success" %>
+<% end %>
+
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_tags_path do %>Tags<% end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_tag_path(@tag) do %>Modification Tag: <%= @tag.name %><%end %></li>
+<% end %>
+
+<%= container_card("Formulaire") do %>
+<%= render 'form' %>
+<% end %>

@@ -1,0 +1,128 @@
+<!--
+A terme changer les bundles en fonction de la page
+-->
+<%= javascript_include_tag 'application' %>
+
+<script>
+$(function() {
+  // TO Start the tooltip on a class basis
+  $('.tooltip-tag').tooltip();
+
+  // TO SEND EVENT MANUALLY TO GOOGLE TAG MANAGER
+  $('.tracking-button').on('click', function() {
+    // GET THE CATEGORY FROM DATA
+		var category = $(this).data('category');
+    dataLayer.push({'event': category});
+	});
+
+  // THE ANCHOR LINKS EFFECTS
+  $('a[href*="#"]:not([href="#"]):not(.accordion-toggle,.no-animation)').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top - 50
+        }, 700);
+        return false;
+      }
+    }
+  });
+
+  $('.summernotebis').summernote({
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']],
+      ['font', ['superscript', 'subscript']],
+      ['fontsize', ['fontsize', 'fontname']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      ['height', ['height']],
+      ['table', ['table']],
+      ['insert', ['picture', 'link', 'video']],
+      ['codeview', ['codeview']]
+    ],
+    height: 350,
+    fontNames: [ 'Verdana', 'Roboto', 'Sans-Serif'],
+    placeholder: "Décrivez ici ",
+    dialogsInBody: true,
+    callbacks: {
+      onImageUpload: function(files, editor, welEditable) {
+        sendFile(files[0], editor, welEditable);
+      }
+    },
+    popover: {
+            image: [
+                ['custom', ['imageAttributes']],
+                ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                ['remove', ['removeMedia']]
+            ],
+        },
+        lang: 'en-US', // Change to your chosen language
+        imageAttributes:{
+            imageDialogLayout:'default', // default|horizontal
+            icon:'<i class="note-icon-pencil"/>',
+            removeEmpty:false // true = remove attributes | false = leave empty if present
+        },
+        displayFields:{
+            imageBasic:true,  // show/hide Title, Source, Alt fields
+            imageExtra:false, // show/hide Alt, Class, Style, Role fields
+            linkBasic:true,   // show/hide URL and Target fields for link
+            linkExtra:false   // show/hide Class, Rel, Role fields for link
+        }
+  });
+
+  function sendFile(file, editor, welEditable) {
+    data = new FormData();
+    data.append("file", file);
+    $.ajax({
+      type: "POST",
+      url: "/media/create_image_attachment",
+      data: data,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: 'json',
+      success: function(data) {
+        img = document.createElement('IMG');
+        img.src = data.url;
+        img.setAttribute('id', data.image_id);
+        //$(this).summernote('insertNode', img);
+        //$(this).summernote('insertNode', img);
+        $('.summernotebis').summernote('insertImage', data.url);
+      },
+      error : function(error) {
+        alert('error');
+      },
+      complete : function(response) {
+      }
+    });
+  }
+
+});
+</script>
+
+
+<!-- All the JS CUSTOMIZED INTERNAL TOOLS -->
+
+<!-- Enable social share of the page -->
+<% if content_for?(:shareable) %>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5295de8d2a21d3cb"></script>
+<% end %>
+
+<!-- Alert if try to leave the page -->
+<% if content_for?(:no_leave) %>
+<script type="text/javascript">
+$(function(){
+  $(window).bind('beforeunload', function(){
+    if (window.shouldNotLeave){
+    return 'Êtes vous sur de vouloir quitter la page, les processus en cours seront perdus?';
+  } else {
+    return;
+  }
+  });
+})
+</script>
+<% end %>
+
+<%= yield(:end_script) %>

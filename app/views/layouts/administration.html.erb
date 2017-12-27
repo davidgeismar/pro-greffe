@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="fr">
+  <head>
+    <%= render partial: 'layouts/administration/meta_common' %>
+    <%= stylesheet_link_tag 'administration', media: 'all' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="app footer-fixed header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    <!-- NO LAYOUT MODE -->
+    <% if content_for?(:no_layout) %>
+    <%= yield %>
+    <% else %>
+
+    <%= render partial: "layouts/administration/navbar" %>
+
+    <!-- BODY -->
+    <div class="app-body">
+      <!-- SIDEBAR -->
+      <%= render partial: "layouts/administration/sidebar" %>
+
+      <!-- Main content -->
+      <main class="main">
+        <ol class="breadcrumb">
+          <% if content_for? :breadcrumb %>
+            <%= yield(:breadcrumb) %>
+          <% else %>
+          <li class="breadcrumb-item active"><%= link_to administration_dashboard_path do %> Greffe Sans Frais <% end %></li>
+          <% end %>
+        </ol>
+
+        <div class="container-fluid">
+          <div class="animated fadeIn">
+            <div class="row">
+              <div class="col-md-12">
+                <% if content_for? :title %>
+                <h1 class="page-header"><%= yield(:title) %> <small class="pull-right"><%= yield(:side_buttons) %></small></h1>
+                <% end %>
+                <% flash.each do |key, value| %>
+                <div class="alert alert-warning alert-<%= key %>  text-center">
+                  <strong><%= value %></strong>
+                </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </main>
+    </div>
+
+    <!-- FOOTER -->
+    <%= render partial: "layouts/administration/footer" %>
+    <% end %>
+
+    <%= render partial: 'layouts/administration/end_scripts' %>
+  </body>
+</html>

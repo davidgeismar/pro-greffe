@@ -1,0 +1,21 @@
+
+<div class="text-center pagination-hd">
+  <%= will_paginate articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+</div>
+
+
+<div class="row align-items-stretch">
+  <% articles.each do |article| %>
+  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center" >
+    <%= render partial: "articles/presentation/panel", locals:{article: article} %>
+  </div>
+  <% end %>
+  <% if articles.empty? %>
+  <h3 class="text-center">Pas d'article pour le moment</h3>
+
+  <% end %>
+</div>
+
+<div class="text-center pagination-hd">
+  <%= will_paginate articles, renderer: WillPaginate::ActionView::BootstrapLinkRenderer  %>
+</div>

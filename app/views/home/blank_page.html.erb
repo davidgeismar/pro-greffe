@@ -1,0 +1,74 @@
+<%= provide(:title, "Page test") %>
+<%= provide(:description, "Page test") %>
+<%= provide(:keywords, "frais, Greffes") %>
+<%= provide(:image, "https://www.Greffe-sans-frais.com/soial_logo.png") %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <%= image_tag "pages/plante.jpg", class:"img-fluid" %>
+      </div>
+
+      <section class="page-section p-3 ">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-center text-uppercase">Sommaire</h3>
+            <p>
+              Changez de Greffe, négociez vos frais bancaires, comparer les Greffes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="page-section p-3 ">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <%= link_to "tel:#{PhoneGenerator.main_phone_intern}", class: "btn btn-secondary" do %>
+            Infos Souscriptions Greffe <br />
+            <%= PhoneGenerator.main_phone %>
+            <% end %>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="page-section p-3 ">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3>Vous changez de Greffe ? </h3>
+            <%= link_to "tel:#{PhoneGenerator.main_phone_intern}", class: "btn btn-color-primary btn-lg" do %>
+
+            <%= PhoneGenerator.main_phone %>
+            <% end %>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+    <div class="col-md-8">
+      <section class="page-section pt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Titre</h1>
+            <div class="text-left">
+            Paragraphe
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+
+
+
+
+    </div>
+  </div>
+</div>

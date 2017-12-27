@@ -1,0 +1,15 @@
+<%= provide(:title, "Les greffes par ville en France") %>
+<%= provide(:description, "Toutes les greffes et les distributeurs. Informations - Horaires - Toutes les Greffe") %>
+<%= provide(:keywords, "informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="page-header text-center">greffes par ville</h1>
+    </div>
+    <div class="col-md-12">
+      <%= render partial: "cities/presentation/panels", locals: {cities: @cities} %>
+    </div>
+  </div>
+</div>

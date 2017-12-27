@@ -1,0 +1,9 @@
+
+  <div class="card" style="height: 100%;">
+    <%= image_tag article.small_image, class: "card-img-top", alt: article.name %>
+    <div class="card-body">
+      <h4 class="card-title"><%= article.name %></h4>
+      <p class="card-text"><%= article.small_description %></p>
+      <%= link_to "Voir l'article", article, class: "btn btn-primary" %>
+    </div>
+  </div>

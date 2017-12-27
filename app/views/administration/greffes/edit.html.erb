@@ -1,0 +1,9 @@
+<%= provide(:title, "Modification Greffe : #{@greffe.name}" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to "Retour à Greffe", administration_greffe_path(@greffe), class: "btn btn-success" %>
+<% end %>
+
+
+<%= container_card("Formulaire") do %>
+<%= render 'administration/greffes/form' %>
+<% end %>

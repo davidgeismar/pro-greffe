@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>
+        Nombre de Greffes
+      </th>
+      <th>Numéro</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% departments.each do |department| %>
+    <tr>
+      <td><%= link_to department.name, department %></td>
+      <td><%= department.greffes.count %></td>
+      <td><%= department.department_number %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

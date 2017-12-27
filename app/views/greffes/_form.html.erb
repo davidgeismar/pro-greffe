@@ -1,0 +1,127 @@
+<%= form_with(model: greffe, local: true) do |form| %>
+  <% if greffe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(greffe.errors.count, "error") %> prohibited this greffe from being saved:</h2>
+
+      <ul>
+      <% greffe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :department_id %>
+    <%= form.text_field :department_id, id: :greffe_department_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :greffe_id %>
+    <%= form.text_field :greffe_id, id: :greffe_greffe_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :greffe_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :greffe_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scrap_address %>
+    <%= form.text_area :scrap_address, id: :greffe_scrap_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :geo_address %>
+    <%= form.text_area :geo_address, id: :greffe_geo_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city_name %>
+    <%= form.text_field :city_name, id: :greffe_city_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, id: :greffe_latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, id: :greffe_longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website_url %>
+    <%= form.text_field :website_url, id: :greffe_website_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :greffe_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Greffe_code %>
+    <%= form.text_field :Greffe_code, id: :greffe_Greffe_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :guichet_code %>
+    <%= form.text_field :guichet_code, id: :greffe_guichet_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monday_hours %>
+    <%= form.text_field :monday_hours, id: :greffe_monday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tuesday_hours %>
+    <%= form.text_field :tuesday_hours, id: :greffe_tuesday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wednesday_hours %>
+    <%= form.text_field :wednesday_hours, id: :greffe_wednesday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thursday_hours %>
+    <%= form.text_field :thursday_hours, id: :greffe_thursday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :friday_hours %>
+    <%= form.text_field :friday_hours, id: :greffe_friday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :saturday_hours %>
+    <%= form.text_field :saturday_hours, id: :greffe_saturday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sunday_hours %>
+    <%= form.text_field :sunday_hours, id: :greffe_sunday_hours %>
+  </div>
+
+  <div class="field">
+    <%= form.label :slug %>
+    <%= form.text_field :slug, id: :greffe_slug %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority_order %>
+    <%= form.number_field :priority_order, id: :greffe_priority_order %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

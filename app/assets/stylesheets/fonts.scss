@@ -1,0 +1,74 @@
+// IF you want to add several font faces just add another block with font face
+@font-face {
+    font-family: 'avenir-book';
+    src: font-url('avenir-book.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// FONT FOR LANDING
+.landing-font{
+  font-family: 'shadow-into';
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.brandon-text{
+  font-family: 'brandon';
+}
+
+// FIRST LETTER UPPERCASE
+.f-letter:first-letter{
+  text-transform: uppercase;
+}
+
+
+// SMALL HIGHTLIGHT USED IN MAIN PAGE
+.text-highlight-primary {
+    background-color: $primary;
+    padding: 3px;
+}
+
+// --- TEXT SIZE
+
+.text-bold{
+  font-weight: bold;
+}
+
+
+.text-18{
+  font-size: 1.8rem;
+}
+.text-16{
+  font-size: 1.6rem;
+}
+.text-15{
+  font-size: 1.5rem;
+}
+
+.text-14{
+  font-size: 1.4rem;
+}
+
+.text-13{
+  font-size: 1.3rem;
+}
+
+.text-12{
+  font-size: 1.2rem;
+}
+
+.text-11{
+  font-size: 1.1rem;
+}
+
+.text-10{
+  font-size: 1rem;
+}
+
+.text-8{
+  font-size: 0.8rem;
+}
+
+.text-6{
+  font-size: 0.6rem;
+}

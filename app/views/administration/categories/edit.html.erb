@@ -1,0 +1,15 @@
+<%= provide(:title, "Modification Catégorie:  #{@category.name}" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Retour', administration_categories_path, class: "btn btn-success" %>
+<% end %>
+
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item"><%= link_to administration_categories_path do %>Catégories<% end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_category_path(@category) do %>Modification Catégorie: <%= @category.name %><%end %></li>
+<% end %>
+
+<%= container_card("Formulaire") do %>
+<%= render 'form' %>
+<% end %>

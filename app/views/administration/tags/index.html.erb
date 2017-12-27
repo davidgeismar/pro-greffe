@@ -1,0 +1,20 @@
+<%= provide(:title, "Liste des tags" ) %>
+<%= content_for(:side_buttons) do %>
+<%= link_to 'Créer un nouveau tag', new_administration_tag_path, class: "btn btn-success" %>
+<% end %>
+
+
+<%= content_for(:breadcrumb) do %>
+<li class="breadcrumb-item"><%= link_to root_path do %>bankizy <%end %></li>
+<li class="breadcrumb-item active"><%= link_to administration_tags_path do %>Tags<% end %></li>
+<% end %>
+
+
+
+<%= container_card("Recherche ") do %>
+<%= render partial: "administration/tags/presentation/search_filter"%>
+<% end %>
+
+<%= container_card("Liste des tags") do %>
+<%= render partial: "administration/tags/presentation/table", locals:{tags: @tags } %>
+<% end %>
