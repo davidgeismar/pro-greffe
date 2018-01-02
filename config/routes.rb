@@ -22,10 +22,10 @@ Rails.application.routes.draw do
 
   # Resources for common models
   resources :greffes, path: 'greffes'
-  resources :departments, path: 'agences-bancaires-departement' do
+  resources :departments, path: 'greffes-departement' do
     resources :greffes, only: [:show], path: 'greffes'
   end
-  resources :cities, path: "agences-bancaires-ville" do
+  resources :cities, path: "greffes-ville" do
     resources :greffes, only: [:show], path: 'greffes'
   end
 

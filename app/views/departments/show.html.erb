@@ -1,12 +1,12 @@
 <%= provide(:title, "#{@department.name} - greffes") %>
-<%= provide(:description, "Toutes les greffes de #{@department.name}. Les horaires des agences et la présence de distributeur. Les frais des greffes") %>
+<%= provide(:description, "Toutes les greffes de #{@department.name}. Les horaires des greffes et la présence de distributeur. Les frais des greffes") %>
 <%= provide(:keywords, "département,#{@department.name}, informations, horaires, changer de Greffe, frais bancaires, frais des Greffes") %>
 
 <div class="background-grey pb-4">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-center page-header">  Les greffes de <%= @department.name %></h1>
+        <h1 class="text-center page-header">  Les RCS dans le <%= @department.name %></h1>
         <div class="lead text-center">
           <%= simple_format @department.description %>
         </div>
@@ -25,11 +25,10 @@
 
     <div class="row mt-2">
       <div class="col-md-12">
-        <h2>Les Greffes présentes dans le département</h2>
+        <h2>Les RCS présents dans ce département</h2>
         <div class="background-white p-2 border-shadow">
-          Il y a <%= @greffes.count %> Greffes présentes dans le département de <%= @department.name %>. Ces <%= @greffes.count %> Greffes représentent un
-          nombre total d'agences dans le département de <%= @greffes.count %> greffes. Vous pouvez chercher
-          les agences par Greffe ou par ville dans le département de <%= @department.name %>.
+          Il y a <%= @greffes.count %> RCS présentss dans le <%= @department.name %>. Vous pouvez affiner votre recherche
+          par ville dans le département <%= @department.name %>.
         </div>
         <%= render partial: "greffes/presentation/panels", locals:{greffes: @greffes, department: @department} %>
       </div>
@@ -37,7 +36,7 @@
 
     <div class="row mt-4">
       <div class="col-md-12">
-        <h2>Les agences par ville</h2>
+        <h2>Les greffes par ville</h2>
         <%= render partial: "cities/presentation/panels", locals:{cities: @cities} %>
       </div>
     </div>

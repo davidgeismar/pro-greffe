@@ -13,7 +13,7 @@
         <nav aria-label="breadcrumb" role="navigation">
           <ol class="breadcrumb background-grey">
             <li class="breadcrumb-item" >
-              <%= link_to "Greffe Sans Frais", root_path %>
+              <%= link_to "Pro-greffe", root_path %>
             </li>
             <li class="breadcrumb-item active" >
               <%= link_to "greffes", departments_path %>
@@ -61,8 +61,8 @@
                                     });
                         var contentString = `<div>
                                                 <h2>${agencyData[1]['name']}</h2>
-                                                <p>${agencyData[1]['description']}</p>
-                                                <a href="${'/agences-bancaires/'+ agencyData[1]['slug']}">En Savoir plus</a>
+                                                <p>Voici le RCS de ${agencyData['name']}</p>
+                                                <a href="${'/greffes/'+ agencyData[1]['slug']}">En Savoir plus</a>
                                               </div>`
                         var infowindow = new google.maps.InfoWindow({
                           content: contentString

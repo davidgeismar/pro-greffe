@@ -28,7 +28,7 @@ class Department < ApplicationRecord
   friendly_id :name, use: :slugged
 
   def greffes_uniq
-    greffeGroup.where('greffes.id in (?)', self.greffes.pluck(:id).uniq)
+    Greffe.where('greffes.id in (?)', self.greffes.pluck(:id).uniq)
   end
 
   def cities_uniq

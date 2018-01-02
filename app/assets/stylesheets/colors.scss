@@ -6,7 +6,7 @@ $orange: rgb(253, 117, 83);
 $yellow: rgb(250, 170,65);
 
 // DEFINE MAIN COLORS
-$blue: #3294f0; // PRIMARY
+$blue: rgb(70, 139, 183); // PRIMARY
 $green: #00cc7e;
 
 $dark-grey: rgb(128,128,128); // SECONDARY
@@ -16,7 +16,7 @@ $white: white;
 
 
 // REAL COLORS TO USE
-$primary: $green;
+$primary: rgb(66, 148, 168);
 $secondary: $blue;
 $tertiary: $dark-blue;
 $text-color: #083749;

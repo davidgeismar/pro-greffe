@@ -21,12 +21,12 @@ class City < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true, :case_sensitive => false
   has_many :greffes
-  
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   def greffes_uniq
-    greffeGroup.where('greffes.id in (?)', self.greffes.pluck(:id).uniq)
+    Greffe.where('greffes.id in (?)', self.greffes.pluck(:id).uniq)
   end
 
 end

@@ -46,6 +46,25 @@
           <strong>URL:</strong>
           <%= @greffe.slug %>
         </p>
+          <p>
+            <strong>Horaires:</strong>
+            <table class='table-striped table'>
+            <tr>
+              <th>Lundi</th>
+              <th>Mardi</th>
+              <th>Mercredi</th>
+              <th>Jeudi</th>
+              <th>Vendredi</th>
+            </tr>
+            <tr>
+              <td><%= @greffe.monday_hours %></td>
+              <td><%= @greffe.tuesday_hours %></td>
+              <td><%= @greffe.wednesday_hours %></td>
+              <td><%= @greffe.thursday_hours %></td>
+              <td><%= @greffe.friday_hours %></td>
+            </tr>
+          </table>
+        </p>
 
         <% end %>
 

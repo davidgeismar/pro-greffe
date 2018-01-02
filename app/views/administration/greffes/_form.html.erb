@@ -16,6 +16,10 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="form-group">
+    <%= f.label :description, "Description du RCS" %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :website_url, "Url de la banque" %><br>
     <%= f.text_field :website_url, class: "form-control" %>
   </div>
@@ -23,6 +27,31 @@
     <%= f.label :phone, "Telephone de la banque" %><br>
     <%= f.text_field :phone, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= f.label :phone, "Telephone de la banque" %><br>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :monday_hours, "Horaires lundi" %><br>
+    <%= f.text_field :monday_hours, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tuesday_hours, "Horaires mardi" %><br>
+    <%= f.text_field :tuesday_hours, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :wednesday_hours, "Horaires mercredi" %><br>
+    <%= f.text_field :wednesday_hours, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :thursday_hours, "Horaires jeudi" %><br>
+    <%= f.text_field :thursday_hours, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :friday_hours, "Horaires vendredi" %><br>
+    <%= f.text_field :friday_hours, class: "form-control" %>
+  </div>
+
   <%= render partial: "administration/general_forms/small_image", locals:{small_imageable: @greffe, f: f} %>
   <%= render partial: "administration/general_forms/big_image", locals:{big_imageable: @greffe, f: f} %>
 

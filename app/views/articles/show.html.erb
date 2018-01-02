@@ -16,7 +16,7 @@
             <div class="col-md-12">
               <h3 class="text-center text-uppercase">Résumé</h3>
                 <p>Publié le <time itemprop="datePublished" datetime=<%=@article.created_at.strftime("%F") %>><%= @article.created_at.strftime("%d-%m-%Y") %></time></p>
-                <p>par <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"> <span itemprop="name">Greffe Sans Frais</span></span></p>
+                <p>par <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"> <span itemprop="name">Pro-greffe</span></span></p>
 
               <p>
                 <%= simple_format @article.small_description %>

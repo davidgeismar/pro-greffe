@@ -21,12 +21,12 @@ class Recall < ApplicationRecord
   # Callback to create the recall in the treatment center
   def send_treatment_center
     require 'rest-client'
-    result = RestClient.post 'https://www.bankizy.com/api/v1/recalls/oubound_recall_create', {phone: self.phone, recall_date: self.recall_date, reason: self.reason, origin: "greffe Sans Frais"}
+    result = RestClient.post 'https://www.bankizy.com/api/v1/recalls/oubound_recall_create', {phone: self.phone, recall_date: self.recall_date, reason: self.reason, origin: "Pro-greffe"}
   end
 
   def self.test
     require 'rest-client'
-    result = RestClient.post 'https://www.bankizy.com/api/v1/recalls/oubound_recall_create', {phone: "0677273409", recall_date: Time.zone.now, reason: "TEST LOUIS", origin: "greffe Sans Frais"}
+    result = RestClient.post 'https://www.bankizy.com/api/v1/recalls/oubound_recall_create', {phone: "0677273409", recall_date: Time.zone.now, reason: "TEST LOUIS", origin: "Pro-greffe"}
   end
 
 end

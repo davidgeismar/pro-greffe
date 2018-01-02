@@ -15,7 +15,7 @@
             <div class="col-md-12">
               <h3 class="text-center text-uppercase">Être mis en relation</h3>
               <p>
-                Tarifs, frais de <%= @greffe.name %>
+                Les avantages du RCS de <%= @greffe.name %>
               </p>
               <p>
                 Département: <%= link_to @department.name, @department %>
@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <%= link_to new_recall_path, remote: true,  class: "btn btn-secondary" do %>
-              Trouver une meilleure Greffe <br />
+              Trouver un autre RCS <br />
               <%= PhoneGenerator.main_phone %>
               <% end %>
             </div>
@@ -49,7 +49,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <%= link_to "https://www.bankizy.com/formulaires-comparaison", class: "btn btn-primary" do %>
-              Comparer les Greffes
+              Trouver votre RCS
               <% end %>
             </div>
           </div>
@@ -114,7 +114,7 @@
       <section class="page-section pt-2 Greffe-times">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Les horaires de l'agence</h2>
+            <h2 class="text-center">Les horaires de ce RCS</h2>
             <p class="text-left" itemprop="openingHours">
               <%= render partial: "greffes/presentation/opening_hours", locals:{greffe: @greffe} %>
             </p>
@@ -129,9 +129,9 @@
       <section class="page-section pt-5">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Les frais de l'agence</h2>
+            <h2 class="text-center">Les avantages de ce RCS</h2>
             <div class="text-left">
-              Cette agence fait partie de la Greffe <%= link_to @greffe.name, @greffe %>. Voici les frais, prix et les tarifs bancaires qui s'appliquent pour votre agence:
+              Ce RCS fait parti de la ville de  <%= link_to @greffe.name, @greffe %>. Voici les formalités à accomplir pour y inscrire votre société:
             </div>
             <%# render partial: "greffes/presentation/fees_table", locals:{greffe: @greffe} %>
           </div>
@@ -143,7 +143,7 @@
       <section class="page-section pt-5">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Adresse exacte de l'agence</h2>
+            <h2 class="text-center">Adresse exacte du RCS</h2>
             <div class="text-center">
               <%= @greffe.complete_address %>
             </div>
@@ -163,7 +163,7 @@
             <h2 class="text-center">Greffes à proximité de<%= @greffe.name %>  </h2>
             <%= render partial: "greffes/presentation/near_table", locals:{greffes: @near_greffes} %>
 
-            <h2 class="text-center">Autres greffes à proximité </h2>
+            <h2 class="text-center">Autres RCS à proximité </h2>
             <%# render partial: "greffes/presentation/near_table", locals:{greffes: @near_greffes_other_greffe} %>
           </div>
         </div>
@@ -173,11 +173,12 @@
       <section class="page-section pt-5">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Changer de Greffe</h2>
+            <h2 class="text-center">Vos Formalités de création d'entreprise</h2>
             <p class="text-left">
-              Vous désirez changer de Greffe ? Vous voulez un comparatif détaillé de chaque Greffe ? Nos conseillers et notre plateforme
-              vous aident à faire le bon choix. Appelez-nous ou comparez les Greffes pour faire le meilleur choix.
-              Nous vous proposerons les meilleures Greffes et la meilleure greffe en fonction de votre profil.
+              Le Registre du Commerce et des Sociétés (RCS) a pour rôle principal :
+              De centraliser l’ensemble des informations légales sur les entreprises,
+              De s’occuper de l’immatriculation des entreprises.
+              Le RCS dépend du Greffe de chaque Tribunal de commerce. Une entreprise est donc immatriculée au Greffe du Tribunal de commerce dont dépend son siège social.
             </p>
           </div>
         </div>
@@ -187,11 +188,11 @@
       <section class="page-section pt-5">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Négocier vos frais dans votre agence</h2>
+            <h2 class="text-center">Qui doit s'immatriculer au RCS ?</h2>
             <p class="text-left">
-              Vous ne voulez pas changer de Greffe mais vous voulez réduire vos frais. Nos conseillers se tiennent à votre disposition pour vous aider dans cette démarche.
-              De nombreux frais et tarifs bancaires peuvent être négociés à <%= link_to @greffe.name, @greffe %>. Il suffit de connaître les grilles tarifaires ainsi que les discours à tenir
-              à votre conseiller d'agence. Vous pouvez nous contacter pour des conseils gratuits ou lire  <%= link_to "notre article", "/negocier-frais-bancaires" %>
+              Ainsi, sont immatriculées auprès du RCS :
+              Les sociétés telles que SARL, SA, SAS…  Leur inscription au RCS leur attribue la personnalité morale,
+              Les personnes physiques dont l’activité professionnelle correspond à des actes de commerce.
             </p>
             <p>
               <%# render partial: "greffes/presentation/Greffe_affiliation" %>
@@ -203,11 +204,9 @@
       <section class="page-section pt-5">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Comparer les Greffe</h2>
+            <h2 class="text-center">Trouver votre Greffe</h2>
             <p class="text-left">
-              Comparer les services et les tarifs de l'agence <%= @greffe.name %> avec les autres agences autour de vous. Trouvez la Greffe qui vous
-              correspond. Pour effectuer une simulation personnalisée en moins de 30 minutes nous vous
-              recommandons <%= link_to "Bankizy", "https://www.bankizy.com" %>
+              Pour en savoir plus sur les formalités liées à la création d'entreprise, nous vous recommandons: <%= link_to "Bankizy", "https://www.bankizy.com" %>
             </p>
           </div>
         </div>
@@ -217,7 +216,7 @@
       <section class="page-section pt-5">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="text-center">Donnez votre avis sur l'greffe <%= @greffe.name %></h2>
+            <h2 class="text-center">Donnez votre avis sur le RCS de <%= @greffe.name %></h2>
             <div>
               <%= render partial: "recommandations/presentation/panels", locals:{recommandations: @recommandations} %>
             </div>
@@ -225,7 +224,7 @@
 
           <div class="col-md-12 mt-3">
 
-            <h3>Postez votre avis sur l'agence</h3>
+            <h3>Postez votre avis sur ce RCS</h3>
             <% recommandation = Recommandation.new %>
 
             <%= form_with(model: recommandation, local: true, url: { controller: "recommandations", action: "public_create" },) do |form| %>
