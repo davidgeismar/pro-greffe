@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 # PG as databse
 gem 'pg'
 # Use Puma as the app server
-gem 'puma'
+gem 'puma', '>= 3.12.2'
 # Use SCSS for stylesheets
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sass-rails'
