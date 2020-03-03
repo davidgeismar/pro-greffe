@@ -195,7 +195,8 @@ GEM
       byebug (~> 9.1)
       pry (~> 0.10)
     public_suffix (3.0.1)
-    puma (3.11.0)
+    puma (4.3.3)
+      nio4r (~> 2.0)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -332,7 +333,7 @@ DEPENDENCIES
   mechanize
   pg
   pry-byebug
-  puma
+  puma (>= 3.12.4)
   rails (~> 5.1.4)
   rest-client
   sass-rails
@@ -350,4 +351,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.0
+   1.17.3
