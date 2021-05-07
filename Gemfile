@@ -7,15 +7,15 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.6'
 # PG as databse
 gem 'pg'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'sass-rails'
-gem 'jquery-rails'
+gem 'sass-rails', '>= 5.0.7'
+gem 'jquery-rails', '>= 4.3.1'
 gem 'font-awesome-sass'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -36,10 +36,10 @@ gem 'annotate'
 gem 'friendly_id', '~> 5.1.0'
 
 # SECURITY
-gem 'devise'
+gem 'devise', '>= 4.4.2'
 
 ## EXCEPTION NOTFIFICATION
-gem 'exception_notification'
+gem 'exception_notification', '>= 4.2.2'
 
 # IMAGE UPLOAD
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
@@ -52,7 +52,7 @@ gem 'sitemap_generator'
 gem 'rest-client'
 
 # JS UPDATE
-gem 'best_in_place', '~> 3.0.1'
+gem 'best_in_place', '~> 3.0.3'
 
 # Geolocation
 gem 'geocoder'
@@ -79,7 +79,7 @@ group :development do
   # Mailing emulation
   gem 'mailcatcher'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.5.1'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
