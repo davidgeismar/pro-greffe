@@ -58,7 +58,7 @@ gem 'best_in_place', '~> 3.0.1'
 gem 'geocoder'
 
 # Scrapping
-gem 'mechanize'
+gem 'mechanize', '>= 2.8.5'
 
 # ENV Variables
 gem 'figaro'
