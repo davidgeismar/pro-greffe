@@ -14,7 +14,7 @@ gem 'pg'
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'sass-rails'
+gem 'sass-rails', '>= 6.0.0'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 
