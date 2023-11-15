@@ -7,15 +7,15 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.1.5'
 # PG as databse
 gem 'pg'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'sass-rails'
-gem 'jquery-rails'
+gem 'sass-rails', '>= 5.0.8'
+gem 'jquery-rails', '>= 4.3.2'
 gem 'font-awesome-sass'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -36,14 +36,14 @@ gem 'annotate'
 gem 'friendly_id', '~> 5.1.0'
 
 # SECURITY
-gem 'devise'
+gem 'devise', '>= 4.4.0'
 
 ## EXCEPTION NOTFIFICATION
-gem 'exception_notification'
+gem 'exception_notification', '>= 4.3.0'
 
 # IMAGE UPLOAD
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem "fog-aws"
+gem "fog-aws", ">= 2.0.1"
 
 # SITEMAP GENERATOR
 gem 'sitemap_generator'
@@ -52,13 +52,13 @@ gem 'sitemap_generator'
 gem 'rest-client'
 
 # JS UPDATE
-gem 'best_in_place', '~> 3.0.1'
+gem 'best_in_place', '~> 3.1.0'
 
 # Geolocation
 gem 'geocoder'
 
 # Scrapping
-gem 'mechanize'
+gem 'mechanize', '>= 2.7.6'
 
 # ENV Variables
 gem 'figaro'
@@ -70,7 +70,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.17', '>= 2.17.0'
   # WHY ?
   gem 'selenium-webdriver'
 end
@@ -79,7 +79,7 @@ group :development do
   # Mailing emulation
   gem 'mailcatcher'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console', '>= 3.6.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
