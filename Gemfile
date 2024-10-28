@@ -43,7 +43,7 @@ gem 'exception_notification'
 
 # IMAGE UPLOAD
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem "fog-aws"
+gem "fog-aws", ">= 3.29.0"
 
 # SITEMAP GENERATOR
 gem 'sitemap_generator'
