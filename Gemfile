@@ -7,14 +7,14 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 7.0.0'
 # PG as databse
 gem 'pg'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'sass-rails'
+gem 'sass-rails', '>= 6.0.0'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 
