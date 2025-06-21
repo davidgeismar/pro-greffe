@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 7.1.0'
 # PG as databse
 gem 'pg'
 # Use Puma as the app server
@@ -15,7 +15,7 @@ gem 'puma'
 # Use SCSS for stylesheets
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sass-rails'
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 4.3.2'
 gem 'font-awesome-sass'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -23,27 +23,27 @@ gem 'uglifier'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 #gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
+gem 'jbuilder', '>= 2.8.0'
 
 # Pagination
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
 # ANNOTATION
-gem 'annotate'
+gem 'annotate', '>= 2.7.5'
 
 # URL FRIENDLY
-gem 'friendly_id', '~> 5.1.0'
+gem 'friendly_id', '~> 5.2.0'
 
 # SECURITY
-gem 'devise'
+gem 'devise', '>= 4.7.0'
 
 ## EXCEPTION NOTFIFICATION
-gem 'exception_notification'
+gem 'exception_notification', '>= 4.5.0'
 
 # IMAGE UPLOAD
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem "fog-aws"
+gem "fog-aws", ">= 2.0.1"
 
 # SITEMAP GENERATOR
 gem 'sitemap_generator'
@@ -52,13 +52,13 @@ gem 'sitemap_generator'
 gem 'rest-client'
 
 # JS UPDATE
-gem 'best_in_place', '~> 3.0.1'
+gem 'best_in_place', '~> 3.1.0'
 
 # Geolocation
 gem 'geocoder'
 
 # Scrapping
-gem 'mechanize'
+gem 'mechanize', '>= 2.7.6'
 
 # ENV Variables
 gem 'figaro'
@@ -70,20 +70,20 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.17', '>= 2.17.0'
   # WHY ?
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '>= 3.9.0'
 end
 
 group :development do
   # Mailing emulation
-  gem 'mailcatcher'
+  gem 'mailcatcher', '>= 0.10.0'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.6.0'
+  gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen', '~> 2.1.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
