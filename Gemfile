@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 7.1.5', '>= 7.1.5.2'
 # PG as databse
 gem 'pg'
 # Use Puma as the app server
@@ -30,10 +30,10 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
 # ANNOTATION
-gem 'annotate'
+gem 'annotate', '>= 3.2.0'
 
 # URL FRIENDLY
-gem 'friendly_id', '~> 5.1.0'
+gem 'friendly_id', '~> 5.2.0'
 
 # SECURITY
 gem 'devise'
